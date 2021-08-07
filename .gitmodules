@@ -1,0 +1,3 @@
+[submodule "assets/js/Sim2Editor-Core"]
+	path = assets/js/Sim2Editor-Core
+	url = https://github.com/SuperSaiyajinStackZ/Sim2Editor-Core.git

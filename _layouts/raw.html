@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+	Sim2Editor Raw Layout for all the other sites except the save editor.
+-->
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{{ page.title }}</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<link rel="stylesheet" href="./assets/css/main.css"> <!-- Sim2Editor CSS. -->
+
+	<!-- For handling the main tab buttons. -->
+	<script type="module" src="./assets/js/main/main.js"></script>
+</head>
+
+<body>
+	{% include navbar.html %}
+
+	<div class="container-fluid">
+		<main>{{ page.content }}</main>
+	</div>
+
+	{% include footer.html %}
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

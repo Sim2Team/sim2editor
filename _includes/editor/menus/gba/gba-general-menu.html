@@ -1,0 +1,189 @@
+<!--
+	Sim2Editor GBA General Menu.
+-->
+<div class="card card-main hide" id="gba-general-menu">
+	<div class="card-header card-title-bar">
+		<h5 class="card-title">GBA General Menu</h5>
+	</div>
+
+	<div class="card-body card-clr">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<!-- The "General" Main card. -->
+					<div class="card sub-card-transparent">
+						<!-- General Title. -->
+						<div class="card-header card-title-bar">
+							<h5 class="card-title">General</h5>
+						</div>
+
+						<!-- Actual General content. -->
+						<div class="card-body card-clr">
+							<p class="card-text">
+
+								<!-- Name Input. -->
+								<div class="input-group mb-3">
+									<span class="input-group-text">Name</span>
+									<input type="text" class="form-control" id="gba-general-name" placeholder="Name" maxlength="16">
+								</div>
+
+								<!-- Simoleons Input. -->
+								<div class="input-group mb-3">
+									<span class="input-group-text">Simoleons</span>
+									<input type="number" class="form-control" id="gba-general-simoleons" placeholder="Amount" min="0" max="999999" maxlength="6">
+								</div>
+
+								<!-- Ratings Input. -->
+								<div class="input-group mb-3">
+									<span class="input-group-text">Ratings</span>
+									<input type="number" class="form-control" id="gba-general-ratings" placeholder="Amount" min="0" max="9999" maxlength="4">
+								</div>
+
+								<!-- Time Input. -->
+								<div class="input-group mb-3">
+									<span class="input-group-text">Time</span>
+									<input type="number" class="form-control" id="gba-general-time-hour" placeholder="Hour" min="0" max="23" maxlength="2">
+									<span class="input-group-text">:</span>
+									<input type="number" class="form-control" id="gba-general-time-minute" placeholder="Minute" min="0" max="59" maxlength="2">
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-3">
+					<!-- The Collectables - Amount card. -->
+					<div class="card sub-card-transparent">
+						<!-- Collectables Title. -->
+						<div class="card-header card-title-bar">
+							<h5 class="card-title">Collectables - Amount</h5>
+						</div>
+
+						<!-- Actual Collectables - Amount content. -->
+						<div class="card-body card-clr">
+
+							<!-- Chug-Chug Cola cans amount Input. -->
+							<span class="input-group-text">Chug-Chug Cola Cans</span>
+							<input type="number" class="form-control" id="gba-general-cans-amount" placeholder="Amount" min="0" max="255" maxlength="3"><br>
+
+							<!-- Cowbells amount Input. -->
+							<span class="input-group-text">Cowbells</span>
+							<input type="number" class="form-control" id="gba-general-cowbells-amount" placeholder="Amount" min="0" max="255" maxlength="3"><br>
+
+							<!-- Alien Spaceship Parts amount Input. -->
+							<span class="input-group-text">Alien Spaceship Parts</span>
+							<input type="number" class="form-control" id="gba-general-spaceship-amount" placeholder="Amount" min="0" max="255" maxlength="3"><br>
+
+							<!-- Nuclear Fuelrods amount Input. -->
+							<span class="input-group-text">Nuclear Fuelrods</span>
+							<input type="number" class="form-control" id="gba-general-fuelrods-amount" placeholder="Amount" min="0" max="255" maxlength="3"><br>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-3">
+					<!-- The Collectables - Amount card. -->
+					<div class="card sub-card-transparent">
+						<!-- Collectables Title. -->
+						<div class="card-header card-title-bar">
+							<h5 class="card-title">Collectables - Sell Price</h5>
+						</div>
+
+						<!-- Actual Collectables - Amount content. -->
+						<div class="card-body card-clr">
+
+							<!-- Chug-Chug Cola cans amount Input. -->
+							<span class="input-group-text">Chug-Chug Cola Cans</span>
+							<input type="number" class="form-control" id="gba-general-cans-price" placeholder="Amount" min="0" max="255" maxlength="3"><br>
+
+							<!-- Cowbells amount Input. -->
+							<span class="input-group-text">Cowbells</span>
+							<input type="number" class="form-control" id="gba-general-cowbells-price" placeholder="Amount" min="0" max="255" maxlength="3"><br>
+
+							<!-- Alien Spaceship Parts amount Input. -->
+							<span class="input-group-text">Alien Spaceship Parts</span>
+							<input type="number" class="form-control" id="gba-general-spaceship-price" placeholder="Amount" min="0" max="255" maxlength="3"><br>
+
+							<!-- Nuclear Fuelrods amount Input. -->
+							<span class="input-group-text">Nuclear Fuelrods</span>
+							<input type="number" class="form-control" id="gba-general-fuelrods-price" placeholder="Amount" min="0" max="255" maxlength="3"><br>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-3">
+					<!-- The Skillpoints card. -->
+					<div class="card card-main">
+						<!-- Skillpoints Title. -->
+						<div class="card-header card-title-bar">
+							<h5 class="card-title">Skillpoints</h5>
+						</div>
+
+						<!-- Actual Skillpoints content. -->
+						<div class="card-body card-clr">
+							<p class="card-text">
+								<div class="container">
+
+									<div class="row">
+										<div class="col-sm-6">
+											<!-- Confidence Input. -->
+											<div class="input-group mb-3">
+												<span class="input-group-text">Confidence</span>
+												<input type="number" class="form-control" id="gba-general-confidence" placeholder="Points" min="0" max="5" maxlength="1">
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<!-- Mechanical Input. -->
+											<div class="input-group mb-3">
+												<span class="input-group-text">Mechanical</span>
+												<input type="number" class="form-control" id="gba-general-mechanical" placeholder="Points" min="0" max="5" maxlength="1">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-6">
+											<!-- Strength Input. -->
+											<div class="input-group mb-3">
+												<span class="input-group-text">Strength</span>
+												<input type="number" class="form-control" id="gba-general-strength" placeholder="Points" min="0" max="5" maxlength="1">
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<!-- Personality Input. -->
+											<div class="input-group mb-3">
+												<span class="input-group-text">Personality</span>
+												<input type="number" class="form-control" id="gba-general-personality" placeholder="Points" min="0" max="5" maxlength="1">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-6">
+											<!-- Hotness Input. -->
+											<div class="input-group mb-3">
+												<span class="input-group-text">Hotness</span>
+												<input type="number" class="form-control" id="gba-general-hotness" placeholder="Points" min="0" max="5" maxlength="1">
+											</div>
+										</div>
+
+										<div class="col-sm-6">
+											<!-- Intellect Input. -->
+											<div class="input-group mb-3">
+												<span class="input-group-text">Intellect</span>
+												<input type="number" class="form-control" id="gba-general-intellect" placeholder="Points" min="0" max="5" maxlength="1">
+											</div>
+										</div>
+									</div>
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><br>
+</div>
