@@ -189,11 +189,11 @@ function HandleMainNav(URL) {
 
 
 /* Top Navigation bars. */
-document.getElementById("navbar-home").onclick = () => HandleMainNav("/");
-document.getElementById("navbar-about").onclick = () => HandleMainNav("/about");
-document.getElementById("navbar-faq").onclick = () => HandleMainNav("/faq");
-document.getElementById("navbar-features").onclick = () => HandleMainNav("/features");
-document.getElementById("navbar-save-editor").onclick = () => HandleMainNav("/save-editor");
+document.getElementById("navbar-home").onclick = () => HandleMainNav("/Sim2Editor/");
+document.getElementById("navbar-about").onclick = () => HandleMainNav("/Sim2Editor/about");
+document.getElementById("navbar-faq").onclick = () => HandleMainNav("/Sim2Editor/faq");
+document.getElementById("navbar-features").onclick = () => HandleMainNav("/Sim2Editor/features");
+document.getElementById("navbar-save-editor").onclick = () => HandleMainNav("/Sim2Editor/save-editor");
 
 /* Leave to HOME page button after editing finish. */
-document.getElementById("leave-page").onclick = () => window.location.href = "/";
+document.getElementById("leave-page").onclick = () => window.location.href = "/Sim2Editor/";
