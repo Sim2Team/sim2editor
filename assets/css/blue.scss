@@ -1,0 +1,24 @@
+---
+---
+
+/*
+	Sim2Editor's blue color scheme.
+	Base color: https://www.colorhexa.com/07296d.
+
+	This is being part since v0.0.2.
+*/
+
+$main-bg-color: #0A3B9D;
+$card-title-bar-color: #052055;
+$card-top-color: #CFCFCF;
+$card-color: #07296D;
+$footer-color: #093285;
+$footer-text-color: #CFCFCF;
+$navbar-color: #093285;
+$navbar-text-color: #CFCFCF;
+$selected-button-color: #0C44B5;
+$selected-slot-color: #0C44B5;
+$link-color: #CFCFCF;
+$link-hover-color: #EFEFEF;
+
+@import "main";

@@ -1,0 +1,24 @@
+---
+---
+
+/*
+	Sim2Editor's green default color scheme.
+	Base color: Selected it randomly.
+
+	This is being part since v0.0.1.
+*/
+
+$main-bg-color: #447273;
+$card-title-bar-color: #305050;
+$card-color: #3A5F5F;
+$card-top-color: #CFCFCF;
+$footer-color: #3A5F5F;
+$footer-text-color: #CFCFCF;
+$navbar-color: #3A5F5F;
+$navbar-text-color: #CFCFCF;
+$selected-button-color: #447273;
+$selected-slot-color: #447273;
+$link-color: #CFCFCF;
+$link-hover-color: #EFEFEF;
+
+@import "main";

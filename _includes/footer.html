@@ -2,6 +2,26 @@
 	Sim2Editor's footer for the bottom of the site.
 -->
 <footer>
-	Page created by <a href="https://github.com/SuperSaiyajinStackZ" class="link">SuperSaiyajinStackZ</a>.<br>
-	Published with <a href="https://pages.github.com">GitHub Pages</a>, view <a href="https://github.com/SuperSaiyajinStackZ/Sim2Editor">the source</a> on GitHub.<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8"><br>
+				<b>
+					Page created by <a href="https://github.com/SuperSaiyajinStackZ" class="link">SuperSaiyajinStackZ</a>.<br>
+					Published with <a href="https://pages.github.com">GitHub Pages</a>, view <a href="https://github.com/SuperSaiyajinStackZ/Sim2Editor">the source</a> on GitHub.
+				</b>
+			</div>
+
+			<!-- The active color scheme selector. -->
+			<div class="col-sm-4">
+				<label for="theme-selector">Active color scheme</label><br>
+				<select id="theme-selector" class="form-select form-select-dark" onchange="SetTheme(value)">
+					<option value="default">Default</option>
+					<option value="red">Red</option>
+					<option value="blue">Blue</option>
+					<option value="gray">Gray</option>
+					<option value="green">Green</option>
+				</select>
+			</div>
+		</div><br>
+	</div>
 </footer>

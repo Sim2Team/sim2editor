@@ -39,7 +39,14 @@ let CurrentMenu = ""; // Used so we can keep track of, which sub menu is current
 
 
 /* Show a warning about the save-editor with an alert at startup. */
-window.onload = () => alert("This save-editor is a work in progress.\n\nALWAYS make a backup of your savefile before you try using it, because I cannot 100% guarantee that it always work without issues.\n\nI'm not responsible for any data loss you potential might have.\n\nYou are warned.");
+window.onload = function() {
+	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
+
+	/* Highlight current page navigator button. */
+	document.getElementById("navbar-save-editor").classList.add("selected-bar-button");
+
+	alert("This save-editor is a work in progress.\n\nALWAYS make a backup of your savefile before you try using it, because I cannot 100% guarantee that it always work without issues.\n\nI'm not responsible for any data loss you potential might have.\n\nYou are warned.");
+};
 
 
 /* Load and Select the SAVFile. */

@@ -10,7 +10,8 @@
 
 	<title>Sim2Editor - Save Editor</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-	<link rel="stylesheet" href="./assets/css/editor.css">
+	<link rel="stylesheet" href="./assets/css/main.css">
+	<script src="./assets/js/theme-handler.js"></script>
 
 	{% include editor/s2editor-includes.html %} <!-- Include Sim2Editor-Core related stuff. -->
 	{% include editor/editor-includes.html %} <!-- Includes for the editor. -->
@@ -26,11 +27,13 @@
 			<div id="slot-menu" class="hide">
 				{% include editor/menus/gba/gba-slot-menu.html %}
 				{% include editor/menus/nds/nds-slot-menu.html %}
+				<br>
 			</div>
 
 			<!-- Here the sub bar with the sub menu navigations. -->
 			<div id="sub-tab" class="hide">
 				{% include editor/editor-tabs.html %}
+				<br>
 			</div>
 
 			<!--
@@ -45,11 +48,13 @@
 					{% include editor/menus/gba/gba-social-move-menu.html %} <!-- Then the Social Moves Menu for Social Move related things. -->
 					{% include editor/menus/gba/gba-episode-menu.html %} <!-- Then the Episode Menu for Episode related things. -->
 					{% include editor/menus/gba/gba-minigame-menu.html %} <!-- Then the Minigame Menu for Minigame related things. -->
+					<br>
 				</div>
 
 				<!-- Then the NDS Menus. -->
 				<div id="nds-menus" class="hide">
 					{% include editor/menus/nds/nds-general-menu.html %} <!-- Then the General Menu for general things. -->
+					<br>
 				</div>
 			</div>
 

@@ -24,25 +24,26 @@
 *         reasonable ways as different from the original version.
 */
 
-
 /* Hide the content. */
 .hide { display: none; }
 
 /* Main body color and text-aligned handle. */
 body {
-	background-color: #447273;
+	background-color: $main-bg-color;
 	text-align: center;
+	color: $card-top-color;
 }
 
 /* The title from a menu card. Containing a small border to make it look nicer or so. */
 .card-title-bar {
-	background-color: #305050;
+	background-color: $card-title-bar-color;
 	border-width: 5px;
+	color: $card-top-color;
 }
 
 /* The card color. */
 .card-clr {
-	background-color: #3A5F5F;
+	background-color: $card-color;
 }
 
 /* The MAIN card width, transparency to not show weird white colors and the margin. */
@@ -50,41 +51,50 @@ body {
 	width: 96%;
 	background-color: transparent;
 	margin-left: 2%;
+	color: $card-top-color;
+	border-width: 4px;
 }
 
 /* Sub card transparency handle, same reason as above. */
 .sub-card-transparent {
 	background-color: transparent;
+	border-width: 4px;
 }
 
 /* TODO: The footer SHOULD stay at the bottom, even if the page is not fully filled. */
 footer {
-	background-color: #3A5F5F;
+	background-color: $footer-color;
+	color: $footer-text-color;
 }
 
 /* Make the navigation bars full width. */
 .navigation-bar {
 	width: 100%;
-	background-color: #3A5F5F;
+	background-color: $navbar-color;
+}
+
+/* Color of the navigation bar text. */
+.navigation-bar-text {
+	color: $navbar-text-color;
 }
 
 /* Selected tab button with a nice border. */
 .selected-bar-button {
 	border-width: 5px;
-	border-color: #447273;
+	border-color: $selected-button-color;
 }
 
 /* Selected slot button with a nice border. */
 .selected-slot {
 	border-width: 5px;
-	border-color: #447273;
+	border-color: $selected-slot-color;
 }
 
-/* Blue looks too awful for the UI, so make link colors white instead. */
+/* Link colors. */
 a {
-	color: #CFCFCF;
+	color: $link-color;
 }
 
 a:hover {
-	color: #EFEFEF;
+	color: $link-hover-color;
 }

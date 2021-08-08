@@ -1,0 +1,24 @@
+---
+---
+
+/*
+	Sim2Editor's gray color scheme.
+	Base color: https://www.colorhexa.com/343840.
+
+	This is being part since v0.0.2 and is based of the BG color of the Sim2Editor Icon.
+*/
+
+$main-bg-color: #4B515C;
+$card-title-bar-color: #292C32;
+$card-top-color: #CFCFCF;
+$card-color: #3F444E;
+$footer-color: #343840;
+$footer-text-color: #CFCFCF;
+$navbar-color: #343840;
+$navbar-text-color: #CFCFCF;
+$selected-button-color: #CFCFCF;
+$selected-slot-color: #CFCFCF;
+$link-color: #CFCFCF;
+$link-hover-color: #EFEFEF;
+
+@import "main";

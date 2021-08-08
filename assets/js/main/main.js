@@ -24,6 +24,15 @@
 *         reasonable ways as different from the original version.
 */
 
+
+window.onload = function() {
+	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
+
+	/* Highlight current page navigator button. */
+	document.getElementById(document.getElementById("navbar-page-button").dataset.btn).classList.add("selected-bar-button");
+};
+
+
 /* Top Navigation bars. */
 document.getElementById("navbar-home").onclick = () => window.location.href = "/Sim2Editor/";
 document.getElementById("navbar-about").onclick = () => window.location.href = "about";

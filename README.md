@@ -6,6 +6,7 @@ You can find the page [here](https://supersaiyajinstackz.github.io/Sim2Editor).
 
 
 ## Building
+
 To test the site locally install Jekyll by running:
 ```
 gem install --user-install bundler jekyll
@@ -18,3 +19,7 @@ Then you can run the site by running:
 ```
 bundle exec jekyll serve
 ```
+
+## Credits
+
+Just look at https://supersaiyajinstackz.github.io/Sim2Editor/about.
