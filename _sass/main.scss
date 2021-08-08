@@ -27,11 +27,25 @@
 /* Hide the content. */
 .hide { display: none; }
 
+/* Needed for the footer to stay on bottom. */
+html, body {
+	height: 100%;
+}
+
 /* Main body color and text-aligned handle. */
 body {
 	background-color: $main-bg-color;
 	text-align: center;
 	color: $card-top-color;
+
+	/* These are needed for the footer to stay on the bottom as well. */
+	display: flex;
+	flex-direction: column;
+}
+
+/* Also needed for the footer to stay on bottom. */
+.content {
+	flex: 1 0 auto;
 }
 
 /* The title from a menu card. Containing a small border to make it look nicer or so. */
@@ -61,7 +75,7 @@ body {
 	border-width: 4px;
 }
 
-/* TODO: The footer SHOULD stay at the bottom, even if the page is not fully filled. */
+/* The footer part. */
 footer {
 	background-color: $footer-color;
 	color: $footer-text-color;

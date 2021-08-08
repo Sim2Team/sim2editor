@@ -18,61 +18,63 @@
 </head>
 
 <body>
-	<div class="container-fluid">
-		<main>
-			{% include navbar.html %}<br>
-			{% include editor/sav-handler.html %}
+	{% include navbar.html %}<br>
+	<div class="content">
+		<div class="container-fluid">
+			<main>
+				{% include editor/sav-handler.html %}
 
-			<!-- Here the Slot Manager / Loaders. -->
-			<div id="slot-menu" class="hide">
-				{% include editor/menus/gba/gba-slot-menu.html %}
-				{% include editor/menus/nds/nds-slot-menu.html %}
-				<br>
-			</div>
-
-			<!-- Here the sub bar with the sub menu navigations. -->
-			<div id="sub-tab" class="hide">
-				{% include editor/editor-tabs.html %}
-				<br>
-			</div>
-
-			<!--
-				After the Editor Menu Tabs and Save Handler is included, we can include the Menus.
-			-->
-
-			<div id="menus" class="hide">
-				<!-- GBA Menus have priority over NDS. -->
-				<div id="gba-menus" class="hide">
-					{% include editor/menus/gba/gba-general-menu.html %} <!-- Then the General Menu for general things. -->
-					{% include editor/menus/gba/gba-cast-menu.html %} <!-- Then the Cast Member Menu for Cast Member things. -->
-					{% include editor/menus/gba/gba-social-move-menu.html %} <!-- Then the Social Moves Menu for Social Move related things. -->
-					{% include editor/menus/gba/gba-episode-menu.html %} <!-- Then the Episode Menu for Episode related things. -->
-					{% include editor/menus/gba/gba-minigame-menu.html %} <!-- Then the Minigame Menu for Minigame related things. -->
+				<!-- Here the Slot Manager / Loaders. -->
+				<div id="slot-menu" class="hide">
+					{% include editor/menus/gba/gba-slot-menu.html %}
+					{% include editor/menus/nds/nds-slot-menu.html %}
 					<br>
 				</div>
 
-				<!-- Then the NDS Menus. -->
-				<div id="nds-menus" class="hide">
-					{% include editor/menus/nds/nds-general-menu.html %} <!-- Then the General Menu for general things. -->
+				<!-- Here the sub bar with the sub menu navigations. -->
+				<div id="sub-tab" class="hide">
+					{% include editor/editor-tabs.html %}
 					<br>
 				</div>
-			</div>
 
-			<!-- Wasn't sure what to call it, so ehh i kind of call it "Feedback" menu, lol. -->
-			<div id="feedback-menu" class="hide">
-				<h2>Thank you for using Sim2Editor. Your edited Savefile is downloading now.</h2>
-				<b>How was your experience with it?</b><br>
+				<!--
+					After the Editor Menu Tabs and Save Handler is included, we can include the Menus.
+				-->
 
-				<b>
-					Feel free to join the <a href="https://discord.gg/dqfrTaerB6">Strangetown</a> discord server,
-					if you need any help or have suggestions. :-)
-				</b><br><br>
+				<div id="menus" class="hide">
+					<!-- GBA Menus have priority over NDS. -->
+					<div id="gba-menus" class="hide">
+						{% include editor/menus/gba/gba-general-menu.html %} <!-- Then the General Menu for general things. -->
+						{% include editor/menus/gba/gba-cast-menu.html %} <!-- Then the Cast Member Menu for Cast Member things. -->
+						{% include editor/menus/gba/gba-social-move-menu.html %} <!-- Then the Social Moves Menu for Social Move related things. -->
+						{% include editor/menus/gba/gba-episode-menu.html %} <!-- Then the Episode Menu for Episode related things. -->
+						{% include editor/menus/gba/gba-minigame-menu.html %} <!-- Then the Minigame Menu for Minigame related things. -->
+						<br>
+					</div>
 
-				You can now leave to the HOME page using the button below.<br>
+					<!-- Then the NDS Menus. -->
+					<div id="nds-menus" class="hide">
+						{% include editor/menus/nds/nds-general-menu.html %} <!-- Then the General Menu for general things. -->
+						<br>
+					</div>
+				</div>
 
-				<button type="button" id="leave-page">Go to HOME page</button><br><br>
-			</div>
-		</main>
+				<!-- Wasn't sure what to call it, so ehh i kind of call it "Feedback" menu, lol. -->
+				<div id="feedback-menu" class="hide">
+					<h2>Thank you for using Sim2Editor. Your edited Savefile is downloading now.</h2>
+					<b>How was your experience with it?</b><br>
+
+					<b>
+						Feel free to join the <a href="https://discord.gg/dqfrTaerB6">Strangetown</a> discord server,
+						if you need any help or have suggestions. :-)
+					</b><br><br>
+
+					You can now leave to the HOME page using the button below.<br>
+
+					<button type="button" id="leave-page">Go to HOME page</button><br><br>
+				</div>
+			</main>
+		</div>
 	</div>
 
 	{% include footer.html %} <!-- The footer on the bottom. -->
