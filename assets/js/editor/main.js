@@ -33,33 +33,34 @@ import { InitGBASocialMoveEditor } from "./menus/gba/gba-social-move-menu.js";
 import { InitNDSGeneralEditor } from "./menus/nds/nds-general-menu.js";
 import { InitializeNDSSlotEditor } from "./menus/nds/nds-slot-menu.js";
 
-import { SAVType, SAVUtils_ChangesMade, SAVUtils_Finish, SAVUtils_LoadSAV } from "../Sim2Editor-Core/shared/savutils.js";
+import { SavType, SavUtils_ChangesMade, SavUtils_Finish, SavUtils_LoadSav } from "../Sim2Editor-Core/shared/savutils.js";
+import { InitGBAPlotTwistMenu } from "./menus/gba/gba-plot-twist-menu.js";
 
 let CurrentMenu = ""; // Used so we can keep track of, which sub menu is currently open.
 
 
-/* Show a warning about the save-editor with an alert at startup. */
+/* Show a warning about the Save-Editor with an alert at startup. */
 window.onload = function() {
 	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
 
 	/* Highlight current page navigator button. */
 	document.getElementById("navbar-save-editor").classList.add("selected-bar-button");
 
-	alert("This save-editor is a work in progress.\n\nALWAYS make a backup of your savefile before you try using it, because I cannot 100% guarantee that it always work without issues.\n\nI'm not responsible for any data loss you potential might have.\n\nYou are warned.");
+	alert("This save-editor is a work in progress.\n\nALWAYS make a backup of your Savefile before you try using it, because I cannot 100% guarantee that it always work without issues.\n\nI'm not responsible for any data loss you potential might have.\n\nYou are warned.");
 };
 
 
-/* Load and Select the SAVFile. */
-document.getElementById("sav-selector").onchange = (Event) => SAVUtils_LoadSAV(Event.target.files[0], LoadSAV);
+/* Load and Select the Savefile. */
+document.getElementById("sav-selector").onchange = (Event) => SavUtils_LoadSav(Event.target.files[0], LoadSav, SavError);
 
 
 /*
 	Save Loading callback.
 
-	Initializes the Menus, if savefile is loaded properly.
+	Initializes the Menus, if the Savefile is loaded properly.
 */
-function LoadSAV() {
-	switch(SAVType) {
+function LoadSav() {
+	switch(SavType) {
 		case 0: // GBA EUR | USA (International).
 			InitializeMenu(true);
 			break;
@@ -75,13 +76,21 @@ function LoadSAV() {
 	}
 };
 
+/*
+	The Save error callback.
+*/
+function SavError() {
+	alert("You haven't loaded a valid Savefile!\nMake sure it is a valid The Sims 2 Game Boy Advance or Nintendo DS Savefile.\n\nIf you are certain the Savefile is a proper one, then feel free to report it on the Strangetown discord server: https://discord.gg/dqfrTaerB6.");
+};
+
+
 
 /*
 	Initial Menu initializer.
 
 	IsGBA: If the Savefile is a Game Boy Advance one (true) or Nintendo DS one (false).
 
-	Basically loads and initializes the Slot Loader for the specific Savetype.
+	Basically loads and initializes the Slot Loader for the specific SavType.
 */
 function InitializeMenu(IsGBA) {
 	document.getElementById("sav-selector").disabled = true; // Disable the Save Selector, to not conflict.
@@ -126,7 +135,7 @@ export function SwitchMenu(ToSwitch) {
 /*
 	Re-Initializes the Current Menu or better said.. refreshes.
 
-	That is being used, in case for tab switches OR switching a save slot.
+	That is being used, in case for tab switches OR switching a Save Slot.
 */
 export function ReinitCurrentMenu() {
 	switch(CurrentMenu) {
@@ -150,6 +159,10 @@ export function ReinitCurrentMenu() {
 			InitGBAMinigameEditor();
 			break;
 
+		case "gba-plot-twist":
+			InitGBAPlotTwistMenu();
+			break;
+
 
 		case "nds-general":
 			InitNDSGeneralEditor();
@@ -164,13 +177,14 @@ document.getElementById("gba-cast").onclick = () => SwitchMenu("gba-cast");
 document.getElementById("gba-social-move").onclick = () => SwitchMenu("gba-social-move");
 document.getElementById("gba-episode").onclick = () => SwitchMenu("gba-episode");
 document.getElementById("gba-minigame").onclick = () => SwitchMenu("gba-minigame");
+document.getElementById("gba-plot-twist").onclick = () => SwitchMenu("gba-plot-twist");
 
 document.getElementById("nds-general").onclick = () => SwitchMenu("nds-general");
 
 
 /* Finish of save editing. */
 document.getElementById("sav-finish").onclick = function() {
-	SAVUtils_Finish(); // Create download for the new savefile.
+	SavUtils_Finish(true); // Create download for the new Savefile.
 
 	/* Hide all menus. */
 	document.getElementById("sav-handler").classList.add("hide");
@@ -183,11 +197,11 @@ document.getElementById("sav-finish").onclick = function() {
 };
 
 
-/* Handling of the navigation bar with a warning prompt, if you made any changes to the savefile. */
+/* Handling of the navigation bar with a warning prompt, if you made any changes to the Savefile. */
 function HandleMainNav(URL) {
-	if (!SAVUtils_ChangesMade()) window.location.href = URL;
+	if (!SavUtils_ChangesMade()) window.location.href = URL;
 	else {
-		/* If a valid save is already loaded - warn the user. */
+		/* If a valid Save is already loaded - warn the user. */
 		if (window.confirm("You are about to leave the Save Editor.\n\nAre you sure you want to do that? Any changes will be lost! You're warned.")) {
 			window.location.href = URL;
 		}

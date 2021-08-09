@@ -25,7 +25,7 @@
 */
 
 import { SimUtils_SimoleonFormat } from "../../../Sim2Editor-Core/shared/simutils.js"
-import { SAV } from "../../../Sim2Editor-Core/shared/savutils.js";
+import { Sav } from "../../../Sim2Editor-Core/shared/savutils.js";
 import { ReinitCurrentMenu, SwitchMenu } from "../../main.js";
 
 let InitialLoad = true;
@@ -40,8 +40,8 @@ export let NDSActiveSlot = undefined, NDSCurrentSlot = "";
 export function InitializeNDSSlotEditor() {
 	/* Initialize all existing Slots. */
 	for (let _Slot = 0; _Slot < 3; _Slot++) {
-		if (SAV.SlotExist(_Slot)) { // Ensure slot exist.
-			let CurSlot = SAV.Slot(_Slot);
+		if (Sav.SlotExist(_Slot)) { // Ensure slot exist.
+			let CurSlot = Sav.Slot(_Slot);
 
 			document.getElementById("nds-slot" + (1 + _Slot).toString() + "-name").innerText = CurSlot.Name();
 			document.getElementById("nds-slot" + (1 + _Slot).toString() + "-simoleons").innerText = SimUtils_SimoleonFormat(CurSlot.Simoleons());
@@ -65,7 +65,7 @@ function InitSlot(_Slot) {
 	if (!InitialLoad) document.getElementById(NDSCurrentSlot).classList.remove("selected-slot");
 
 	/* Initialize the active Slot and display it as the new state. */
-	NDSActiveSlot = SAV.Slot(_Slot);
+	NDSActiveSlot = Sav.Slot(_Slot);
 	NDSCurrentSlot = "nds-slot" + (1 + _Slot).toString();
 	document.getElementById(NDSCurrentSlot).classList.add("selected-slot");
 	document.getElementById("nds-slot-load-text").innerText = "Loaded Slot: " + (1 + _Slot).toString();

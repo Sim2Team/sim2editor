@@ -25,7 +25,7 @@
 */
 
 import { SimUtils_RatingFormat, SimUtils_SimoleonFormat, SimUtils_TimeString } from "../../../Sim2Editor-Core/shared/simutils.js"
-import { SAV } from "../../../Sim2Editor-Core/shared/savutils.js";
+import { Sav } from "../../../Sim2Editor-Core/shared/savutils.js";
 import { ReinitCurrentMenu, SwitchMenu } from "../../main.js";
 
 let InitialLoad = true;
@@ -40,8 +40,8 @@ export let GBAActiveSlot = undefined, GBACurrentSlot = "";
 export function InitializeGBASlotEditor() {
 	/* Initialize all existing Slots. */
 	for (let _Slot = 1; _Slot < 5; _Slot++) {
-		if (SAV.SlotExist(_Slot)) { // Ensure slot exist.
-			let CurSlot = SAV.Slot(_Slot);
+		if (Sav.SlotExist(_Slot)) { // Ensure slot exist.
+			let CurSlot = Sav.Slot(_Slot);
 
 			/* Init Name, Simoleons, Ratings and Time slot info. */
 			document.getElementById("gba-slot" + _Slot.toString() + "-name").innerText = CurSlot.Name();
@@ -68,7 +68,7 @@ function InitSlot(_Slot) {
 	if (!InitialLoad) document.getElementById(GBACurrentSlot).classList.remove("selected-slot");
 
 	/* Initialize the active Slot and display it as the new state. */
-	GBAActiveSlot = SAV.Slot(_Slot);
+	GBAActiveSlot = Sav.Slot(_Slot);
 	GBACurrentSlot = "gba-slot" + _Slot.toString();
 	document.getElementById(GBACurrentSlot).classList.add("selected-slot");
 	document.getElementById("gba-slot-load-text").innerText = "Loaded Slot: " + _Slot.toString();
