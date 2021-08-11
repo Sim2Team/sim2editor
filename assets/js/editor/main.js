@@ -35,6 +35,7 @@ import { InitializeNDSSlotEditor } from "./menus/nds/nds-slot-menu.js";
 
 import { SavType, SavUtils_ChangesMade, SavUtils_Finish, SavUtils_LoadSav } from "../Sim2Editor-Core/shared/savutils.js";
 import { InitGBAPlotTwistMenu } from "./menus/gba/gba-plot-twist-menu.js";
+import { InitGBAItemPackageEditor } from "./menus/gba/gba-item-package-menu.js";
 
 let CurrentMenu = ""; // Used so we can keep track of, which sub menu is currently open.
 
@@ -163,6 +164,10 @@ export function ReinitCurrentMenu() {
 			InitGBAPlotTwistMenu();
 			break;
 
+		case "gba-item-package":
+			InitGBAItemPackageEditor();
+			break;
+
 
 		case "nds-general":
 			InitNDSGeneralEditor();
@@ -178,6 +183,7 @@ document.getElementById("gba-social-move").onclick = () => SwitchMenu("gba-socia
 document.getElementById("gba-episode").onclick = () => SwitchMenu("gba-episode");
 document.getElementById("gba-minigame").onclick = () => SwitchMenu("gba-minigame");
 document.getElementById("gba-plot-twist").onclick = () => SwitchMenu("gba-plot-twist");
+document.getElementById("gba-item-package").onclick = () => SwitchMenu("gba-item-package");
 
 document.getElementById("nds-general").onclick = () => SwitchMenu("nds-general");
 

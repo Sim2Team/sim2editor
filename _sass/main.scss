@@ -104,6 +104,55 @@ footer {
 	border-color: $selected-slot-color;
 }
 
+
+/* The button style. */
+.button-style {
+	background-color: $button-color;
+	color: $button-text-color;
+	border-radius: 10%;
+	border-width: 3px;
+}
+
+/* The <input> style for text and numbers. */
+.input-style {
+	background-color: $button-color;
+	color: $button-text-color;
+}
+
+/* Overwrite the form-control focus, because it'll show the box white otherwise which breaks the style. */
+.form-control:focus {
+	border-color: $main-bg-color;
+	box-shadow: 0 0 0px rgba(0, 0, 0, 0) !important;
+	background-color: transparent;
+	color: $button-text-color;
+}
+
+/* Overwrite too for the almost same reason above. */
+.form-control:disabled {
+	border-color: $main-bg-color;
+	box-shadow: 0 0 0px rgba(0, 0, 0, 0) !important;
+	background-color: transparent;
+	color: $button-text-color;
+}
+
+/* The <span> style. */
+.span-style {
+	background-color: $button-color;
+	color: $button-text-color;
+}
+
+/* The <label> style. */
+.label-style {
+	background-color: $button-color;
+	color: $button-text-color;
+}
+
+/* The <select> style. */
+.select-style {
+	background-color: $button-color;
+	color: $button-text-color;
+}
+
 /* Link colors. */
 a {
 	color: $link-color;
