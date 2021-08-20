@@ -41,6 +41,9 @@ export function InitGBASocialMoveEditor() {
 
 			/* State / Flag of the Social Move (Unlocked, Locked, Blocked). */
 			document.getElementById("gba-social-move-" + Idx.toString() + "-state").value = SMove.Flag();
+
+			/* Blocked Hours. */
+			document.getElementById("gba-social-move-" + Idx.toString() + "-hour").value = SMove.BlockedHours();
 		}
 	}
 };
@@ -49,59 +52,74 @@ export function InitGBASocialMoveEditor() {
 /* Set Chit-Chat. */
 document.getElementById("gba-social-move-0-level").onchange = () => GBAActiveSlot.SocialMove(0).Level(document.getElementById("gba-social-move-0-level").value - 1);
 document.getElementById("gba-social-move-0-state").onchange = () => GBAActiveSlot.SocialMove(0).Flag(document.getElementById("gba-social-move-0-state").value);
+document.getElementById("gba-social-move-0-hour").onchange = () => GBAActiveSlot.SocialMove(0).BlockedHours(document.getElementById("gba-social-move-0-hour").value);
 
 /* Set Entertain. */
 document.getElementById("gba-social-move-1-level").onchange = () => GBAActiveSlot.SocialMove(1).Level(document.getElementById("gba-social-move-1-level").value - 1);
 document.getElementById("gba-social-move-1-state").onchange = () => GBAActiveSlot.SocialMove(1).Flag(document.getElementById("gba-social-move-1-state").value);
+document.getElementById("gba-social-move-1-hour").onchange = () => GBAActiveSlot.SocialMove(1).BlockedHours(document.getElementById("gba-social-move-1-hour").value);
 
 /* Set Hug. */
 document.getElementById("gba-social-move-2-level").onchange = () => GBAActiveSlot.SocialMove(2).Level(document.getElementById("gba-social-move-2-level").value - 1);
 document.getElementById("gba-social-move-2-state").onchange = () => GBAActiveSlot.SocialMove(2).Flag(document.getElementById("gba-social-move-2-state").value);
+document.getElementById("gba-social-move-2-hour").onchange = () => GBAActiveSlot.SocialMove(2).BlockedHours(document.getElementById("gba-social-move-2-hour").value);
 
 /* Set Brag. */
 document.getElementById("gba-social-move-3-level").onchange = () => GBAActiveSlot.SocialMove(3).Level(document.getElementById("gba-social-move-3-level").value - 1);
 document.getElementById("gba-social-move-3-state").onchange = () => GBAActiveSlot.SocialMove(3).Flag(document.getElementById("gba-social-move-3-state").value);
+document.getElementById("gba-social-move-3-hour").onchange = () => GBAActiveSlot.SocialMove(3).BlockedHours(document.getElementById("gba-social-move-3-hour").value);
 
 /* Set Appologize. */
 document.getElementById("gba-social-move-4-level").onchange = () => GBAActiveSlot.SocialMove(4).Level(document.getElementById("gba-social-move-4-level").value - 1);
 document.getElementById("gba-social-move-4-state").onchange = () => GBAActiveSlot.SocialMove(4).Flag(document.getElementById("gba-social-move-4-state").value);
+document.getElementById("gba-social-move-4-hour").onchange = () => GBAActiveSlot.SocialMove(4).BlockedHours(document.getElementById("gba-social-move-4-hour").value);
 
 /* Set Sweet Talk. */
 document.getElementById("gba-social-move-5-level").onchange = () => GBAActiveSlot.SocialMove(5).Level(document.getElementById("gba-social-move-5-level").value - 1);
 document.getElementById("gba-social-move-5-state").onchange = () => GBAActiveSlot.SocialMove(5).Flag(document.getElementById("gba-social-move-5-state").value);
+document.getElementById("gba-social-move-5-hour").onchange = () => GBAActiveSlot.SocialMove(5).BlockedHours(document.getElementById("gba-social-move-5-hour").value);
 
 /* Set Flirt. */
 document.getElementById("gba-social-move-6-level").onchange = () => GBAActiveSlot.SocialMove(6).Level(document.getElementById("gba-social-move-6-level").value - 1);
 document.getElementById("gba-social-move-6-state").onchange = () => GBAActiveSlot.SocialMove(6).Flag(document.getElementById("gba-social-move-6-state").value);
+document.getElementById("gba-social-move-6-hour").onchange = () => GBAActiveSlot.SocialMove(6).BlockedHours(document.getElementById("gba-social-move-6-hour").value);
 
 /* Set Blow Kiss. */
 document.getElementById("gba-social-move-7-level").onchange = () => GBAActiveSlot.SocialMove(7).Level(document.getElementById("gba-social-move-7-level").value - 1);
 document.getElementById("gba-social-move-7-state").onchange = () => GBAActiveSlot.SocialMove(7).Flag(document.getElementById("gba-social-move-7-state").value);
+document.getElementById("gba-social-move-7-hour").onchange = () => GBAActiveSlot.SocialMove(7).BlockedHours(document.getElementById("gba-social-move-7-hour").value);
 
 /* Set Kiss. */
 document.getElementById("gba-social-move-8-level").onchange = () => GBAActiveSlot.SocialMove(8).Level(document.getElementById("gba-social-move-8-level").value - 1);
 document.getElementById("gba-social-move-8-state").onchange = () => GBAActiveSlot.SocialMove(8).Flag(document.getElementById("gba-social-move-8-state").value);
+document.getElementById("gba-social-move-8-hour").onchange = () => GBAActiveSlot.SocialMove(8).BlockedHours(document.getElementById("gba-social-move-8-hour").value);
 
 /* Set Show Off Body. */
 document.getElementById("gba-social-move-9-level").onchange = () => GBAActiveSlot.SocialMove(9).Level(document.getElementById("gba-social-move-9-level").value - 1);
 document.getElementById("gba-social-move-9-state").onchange = () => GBAActiveSlot.SocialMove(9).Flag(document.getElementById("gba-social-move-9-state").value);
+document.getElementById("gba-social-move-9-hour").onchange = () => GBAActiveSlot.SocialMove(9).BlockedHours(document.getElementById("gba-social-move-9-hour").value);
 
 /* Set Annoy. */
 document.getElementById("gba-social-move-10-level").onchange = () => GBAActiveSlot.SocialMove(10).Level(document.getElementById("gba-social-move-10-level").value - 1);
 document.getElementById("gba-social-move-10-state").onchange = () => GBAActiveSlot.SocialMove(10).Flag(document.getElementById("gba-social-move-10-state").value);
+document.getElementById("gba-social-move-10-hour").onchange = () => GBAActiveSlot.SocialMove(10).BlockedHours(document.getElementById("gba-social-move-10-hour").value);
 
 /* Set Insult. */
 document.getElementById("gba-social-move-11-level").onchange = () => GBAActiveSlot.SocialMove(11).Level(document.getElementById("gba-social-move-11-level").value - 1);
 document.getElementById("gba-social-move-11-state").onchange = () => GBAActiveSlot.SocialMove(11).Flag(document.getElementById("gba-social-move-11-state").value);
+document.getElementById("gba-social-move-11-hour").onchange = () => GBAActiveSlot.SocialMove(11).BlockedHours(document.getElementById("gba-social-move-11-hour").value);
 
 /* Set Threaten. */
 document.getElementById("gba-social-move-12-level").onchange = () => GBAActiveSlot.SocialMove(12).Level(document.getElementById("gba-social-move-12-level").value - 1);
 document.getElementById("gba-social-move-12-state").onchange = () => GBAActiveSlot.SocialMove(12).Flag(document.getElementById("gba-social-move-12-state").value);
+document.getElementById("gba-social-move-12-hour").onchange = () => GBAActiveSlot.SocialMove(12).BlockedHours(document.getElementById("gba-social-move-12-hour").value);
 
 /* Set Rude Gesture. */
 document.getElementById("gba-social-move-13-level").onchange = () => GBAActiveSlot.SocialMove(13).Level(document.getElementById("gba-social-move-13-level").value - 1);
 document.getElementById("gba-social-move-13-state").onchange = () => GBAActiveSlot.SocialMove(13).Flag(document.getElementById("gba-social-move-13-state").value);
+document.getElementById("gba-social-move-13-hour").onchange = () => GBAActiveSlot.SocialMove(13).BlockedHours(document.getElementById("gba-social-move-13-hour").value);
 
 /* Set Karate Moves. */
 document.getElementById("gba-social-move-14-level").onchange = () => GBAActiveSlot.SocialMove(14).Level(document.getElementById("gba-social-move-14-level").value - 1);
 document.getElementById("gba-social-move-14-state").onchange = () => GBAActiveSlot.SocialMove(14).Flag(document.getElementById("gba-social-move-14-state").value);
+document.getElementById("gba-social-move-14-hour").onchange = () => GBAActiveSlot.SocialMove(14).BlockedHours(document.getElementById("gba-social-move-14-hour").value);

@@ -81,7 +81,7 @@ function LoadSav() {
 	The Save error callback.
 */
 function SavError() {
-	alert("You haven't loaded a valid Savefile!\nMake sure it is a valid The Sims 2 Game Boy Advance or Nintendo DS Savefile.\n\nIf you are certain the Savefile is a proper one, then feel free to report it on the Strangetown discord server: https://discord.gg/dqfrTaerB6.");
+	alert("You haven't loaded a valid Savefile!\nMake sure it is a valid The Sims 2 Game Boy Advance or Nintendo DS Savefile.\n\nIf you are certain the Savefile is a proper one, then feel free to report it on the Universal-Server discord server: https://universal-team.net/discord under the 'stackverse' channel in the thread 'Sim2Editor'.");
 };
 
 
