@@ -2,7 +2,7 @@
 
 Sim2Editor is a work in progress The Sims 2 Game Boy Advance and Nintendo DS Save Editor for your web browser.
 
-You can find the page [here](https://supersaiyajinstackz.github.io/Sim2Editor).
+You can find the page [here](https://sim2team.github.io/Sim2Editor).
 
 
 ## Building
@@ -22,4 +22,4 @@ bundle exec jekyll serve
 
 ## Credits
 
-Just look at https://supersaiyajinstackz.github.io/Sim2Editor/about.
+Just look at https://sim2team.github.io/Sim2Editor/about.
