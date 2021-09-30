@@ -14,11 +14,11 @@ function LoadTheme() {
 		if (CurTheme) CurTheme.remove();
 
 	} else {
-		if (CurTheme) CurTheme.href = "./assets/css/" + localStorage.theme + ".css";
+		if (CurTheme) CurTheme.href = "/assets/css/" + localStorage.theme + ".css";
 		else {
 			const Link = document.createElement("link");
 			Link.rel = "stylesheet";
-			Link.href = "./assets/css/" + localStorage.theme + ".css"
+			Link.href = "/assets/css/" + localStorage.theme + ".css";
 			Link.id = "themeCSS";
 
 			document.head.appendChild(Link);

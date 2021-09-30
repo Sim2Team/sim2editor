@@ -33,7 +33,7 @@ import { InitGBASocialMoveEditor } from "./menus/gba/gba-social-move-menu.js";
 import { InitNDSGeneralEditor } from "./menus/nds/nds-general-menu.js";
 import { InitializeNDSSlotEditor } from "./menus/nds/nds-slot-menu.js";
 
-import { SavType, SavUtils_ChangesMade, SavUtils_Finish, SavUtils_LoadSav } from "../Sim2Editor-Core/shared/savutils.js";
+import { SavType, SavUtils_Finish, SavUtils_LoadSav } from "../Sim2Editor-Core/shared/savutils.js";
 import { InitGBAPlotTwistMenu } from "./menus/gba/gba-plot-twist-menu.js";
 import { InitGBAItemPackageEditor } from "./menus/gba/gba-item-package-menu.js";
 
@@ -43,9 +43,6 @@ let CurrentMenu = ""; // Used so we can keep track of, which sub menu is current
 /* Show a warning about the Save-Editor with an alert at startup. */
 window.onload = function() {
 	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
-
-	/* Highlight current page navigator button. */
-	document.getElementById("navbar-save-editor").classList.add("selected-bar-button");
 
 	alert("This save-editor is a work in progress.\n\nALWAYS make a backup of your Savefile before you try using it, because I cannot 100% guarantee that it always work without issues.\n\nI'm not responsible for any data loss you potential might have.\n\nYou are warned.");
 };
@@ -77,11 +74,10 @@ function LoadSav() {
 	}
 };
 
-/*
-	The Save error callback.
-*/
+
+/* The Save error callback. */
 function SavError() {
-	alert("You haven't loaded a valid Savefile!\nMake sure it is a valid The Sims 2 Game Boy Advance or Nintendo DS Savefile.\n\nIf you are certain the Savefile is a proper one, then feel free to report it on the Sim2Server discord server: https://discord.gg/dqfrTaerB6 under the 'sim2projects' channel in the thread 'Sim2Editor'.");
+	alert("You haven't loaded a valid Savefile!\nMake sure it is a valid The Sims 2 Game Boy Advance or Nintendo DS Savefile.\n\nIf you are certain the Savefile is a proper one, then feel free to report it on the Sim2Server discord server: https://sim2team.github.io/discord under the 'Sim2Editor' channel in the category 'Sim2Projects'.");
 };
 
 
@@ -167,7 +163,7 @@ export function ReinitCurrentMenu() {
 		case "gba-item-package":
 			InitGBAItemPackageEditor();
 			break;
-
+			
 
 		case "nds-general":
 			InitNDSGeneralEditor();
@@ -203,24 +199,7 @@ document.getElementById("sav-finish").onclick = function() {
 };
 
 
-/* Handling of the navigation bar with a warning prompt, if you made any changes to the Savefile. */
-function HandleMainNav(URL) {
-	if (!SavUtils_ChangesMade()) window.location.href = URL;
-	else {
-		/* If a valid Save is already loaded - warn the user. */
-		if (window.confirm("You are about to leave the Save Editor.\n\nAre you sure you want to do that? Any changes will be lost! You're warned.")) {
-			window.location.href = URL;
-		}
-	}
+/* Warn user on editor leave. */
+window.onbeforeunload = function() {
+	return "You are about to leave the Save Editor.\n\nAre you sure you want to do that? Any changes will be lost! You're warned.";
 };
-
-
-/* Top Navigation bars. */
-document.getElementById("navbar-home").onclick = () => HandleMainNav("/Sim2Editor/");
-document.getElementById("navbar-about").onclick = () => HandleMainNav("/Sim2Editor/about");
-document.getElementById("navbar-faq").onclick = () => HandleMainNav("/Sim2Editor/faq");
-document.getElementById("navbar-features").onclick = () => HandleMainNav("/Sim2Editor/features");
-document.getElementById("navbar-save-editor").onclick = () => HandleMainNav("/Sim2Editor/save-editor");
-
-/* Leave to HOME page button after editing finish. */
-document.getElementById("leave-page").onclick = () => window.location.href = "/Sim2Editor/";

@@ -161,3 +161,12 @@ a {
 a:hover {
 	color: $link-hover-color;
 }
+
+/* Align the text to the left. Used on Sim2Server's page for the rules content. */
+.card-text-alt {
+	text-align: left;
+}
+
+.rule-list > li {
+	margin: 1rem 0;
+}

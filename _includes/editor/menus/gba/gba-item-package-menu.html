@@ -8,32 +8,30 @@
 
 	<div class="card-body card-clr">
 		<!-- The current item list is here. -->
-		<label for="gba-item-package-item-selector"><b>Selected Item:</b></label>
-		<select class="custom-select select-style" id="gba-item-package-item-selector">
+		<label for="gba-item-package-item-selector"><p class="fw-bold">Selected Item:</p></label>
+		<select class="custom-select select-style mb-3" id="gba-item-package-item-selector">
 			<!--
 				This gets generated at item package initializing, as there are 256 Items
 				and too lazy to write down the whole list here below.
 			-->
-		</select><br><br>
+		</select>
 
 		<div class="container">
 
-			<div class="row">
-				<div class="col-sm-4">
+			<div class="row mb-3">
+				<div class="col-sm-4 mb-3">
 					<!-- Pawnshop card. -->
 					<div class="card sub-card-transparent">
-						<!-- Title. -->
 						<div class="card-header card-title-bar">
 							<h5 class="card-title">Pawnshop</h5>
 						</div>
 
-						<!-- content. -->
 						<div class="card-body card-clr">
 							<!-- Item Slot 1. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-pawnshop-0-name"></b><br>
-									<label>ID: </label> <b id="gba-pawnshop-0-id"></b><br><br>
+									<div>Item: <span id="gba-pawnshop-0-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-pawnshop-0-id"></span></div>
 
 									<button id="gba-pawnshop-0-get" type="button" class="button-style">Get</button>
 									<button id="gba-pawnshop-0-set" type="button" class="button-style">Set</button>
@@ -41,10 +39,10 @@
 							</div>
 
 							<!-- Item Slot 2. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-pawnshop-1-name"></b><br>
-									<label>ID: </label> <b id="gba-pawnshop-1-id"></b><br><br>
+									<div>Item: <span id="gba-pawnshop-1-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-pawnshop-1-id"></span></div>
 
 									<button id="gba-pawnshop-1-get" type="button" class="button-style">Get</button>
 									<button id="gba-pawnshop-1-set" type="button" class="button-style">Set</button>
@@ -52,10 +50,10 @@
 							</div>
 
 							<!-- Item Slot 3. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-pawnshop-2-name"></b><br>
-									<label>ID: </label> <b id="gba-pawnshop-2-id"></b><br><br>
+									<div>Item: <span id="gba-pawnshop-2-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-pawnshop-2-id"></span></div>
 
 									<button id="gba-pawnshop-2-get" type="button" class="button-style">Get</button>
 									<button id="gba-pawnshop-2-set" type="button" class="button-style">Set</button>
@@ -63,10 +61,10 @@
 							</div>
 
 							<!-- Item Slot 4. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-pawnshop-3-name"></b><br>
-									<label>ID: </label> <b id="gba-pawnshop-3-id"></b><br><br>
+									<div>Item: <span id="gba-pawnshop-3-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-pawnshop-3-id"></span></div>
 
 									<button id="gba-pawnshop-3-get" type="button" class="button-style">Get</button>
 									<button id="gba-pawnshop-3-set" type="button" class="button-style">Set</button>
@@ -74,10 +72,10 @@
 							</div>
 
 							<!-- Item Slot 5. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-pawnshop-4-name"></b><br>
-									<label>ID: </label> <b id="gba-pawnshop-4-id"></b><br><br>
+									<div>Item: <span id="gba-pawnshop-4-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-pawnshop-4-id"></span></div>
 
 									<button id="gba-pawnshop-4-get" type="button" class="button-style">Get</button>
 									<button id="gba-pawnshop-4-set" type="button" class="button-style">Set</button>
@@ -87,8 +85,8 @@
 							<!-- Item Slot 6. -->
 							<div class="card sub-card-transparent">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-pawnshop-5-name"></b><br>
-									<label>ID: </label> <b id="gba-pawnshop-5-id"></b><br><br>
+									<div>Item: <span id="gba-pawnshop-5-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-pawnshop-5-id"></span></div>
 
 									<button id="gba-pawnshop-5-get" type="button" class="button-style">Get</button>
 									<button id="gba-pawnshop-5-set" type="button" class="button-style">Set</button>
@@ -98,21 +96,19 @@
 					</div>
 				</div>
 
-				<div class="col-sm-4">
+				<div class="col-sm-4 mb-3">
 					<!-- Saloon card. -->
 					<div class="card sub-card-transparent">
-						<!-- Title. -->
 						<div class="card-header card-title-bar">
 							<h5 class="card-title">Saloon</h5>
 						</div>
 
-						<!-- content. -->
 						<div class="card-body card-clr">
 							<!-- Item Slot 1. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-saloon-0-name"></b><br>
-									<label>ID: </label> <b id="gba-saloon-0-id"></b><br><br>
+									<div>Item: <span id="gba-saloon-0-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-saloon-0-id"></span></div>
 
 									<button id="gba-saloon-0-get" type="button" class="button-style">Get</button>
 									<button id="gba-saloon-0-set" type="button" class="button-style">Set</button>
@@ -120,10 +116,10 @@
 							</div>
 
 							<!-- Item Slot 2. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-saloon-1-name"></b><br>
-									<label>ID: </label> <b id="gba-saloon-1-id"></b><br><br>
+									<div>Item: <span id="gba-saloon-1-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-saloon-1-id"></span></div>
 
 									<button id="gba-saloon-1-get" type="button" class="button-style">Get</button>
 									<button id="gba-saloon-1-set" type="button" class="button-style">Set</button>
@@ -131,10 +127,10 @@
 							</div>
 
 							<!-- Item Slot 3. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-saloon-2-name"></b><br>
-									<label>ID: </label> <b id="gba-saloon-2-id"></b><br><br>
+									<div>Item: <span id="gba-saloon-2-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-saloon-2-id"></span></div>
 
 									<button id="gba-saloon-2-get" type="button" class="button-style">Get</button>
 									<button id="gba-saloon-2-set" type="button" class="button-style">Set</button>
@@ -142,10 +138,10 @@
 							</div>
 
 							<!-- Item Slot 4. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-saloon-3-name"></b><br>
-									<label>ID: </label> <b id="gba-saloon-3-id"></b><br><br>
+									<div>Item: <span id="gba-saloon-3-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-saloon-3-id"></span></div>
 
 									<button id="gba-saloon-3-get" type="button" class="button-style">Get</button>
 									<button id="gba-saloon-3-set" type="button" class="button-style">Set</button>
@@ -153,10 +149,10 @@
 							</div>
 
 							<!-- Item Slot 5. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-saloon-4-name"></b><br>
-									<label>ID: </label> <b id="gba-saloon-4-id"></b><br><br>
+									<div>Item: <span id="gba-saloon-4-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-saloon-4-id"></span></div>
 
 									<button id="gba-saloon-4-get" type="button" class="button-style">Get</button>
 									<button id="gba-saloon-4-set" type="button" class="button-style">Set</button>
@@ -166,8 +162,8 @@
 							<!-- Item Slot 6. -->
 							<div class="card sub-card-transparent">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-saloon-5-name"></b><br>
-									<label>ID: </label> <b id="gba-saloon-5-id"></b><br><br>
+									<div>Item: <span id="gba-saloon-5-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-saloon-5-id"></span></div>
 
 									<button id="gba-saloon-5-get" type="button" class="button-style">Get</button>
 									<button id="gba-saloon-5-set" type="button" class="button-style">Set</button>
@@ -181,18 +177,16 @@
 				<div class="col-sm-4">
 					<!-- Skillbook Seller card. -->
 					<div class="card sub-card-transparent">
-						<!-- Title. -->
 						<div class="card-header card-title-bar">
 							<h5 class="card-title">Skillbook Seller</h5>
 						</div>
 
-						<!-- content. -->
 						<div class="card-body card-clr">
 							<!-- Item Slot 1. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-skillbook-0-name"></b><br>
-									<label>ID: </label> <b id="gba-skillbook-0-id"></b><br><br>
+									<div>Item: <span id="gba-skillbook-0-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-skillbook-0-id"></span></div>
 
 									<button id="gba-skillbook-0-get" type="button" class="button-style">Get</button>
 									<button id="gba-skillbook-0-set" type="button" class="button-style">Set</button>
@@ -200,10 +194,10 @@
 							</div>
 
 							<!-- Item Slot 2. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-skillbook-1-name"></b><br>
-									<label>ID: </label> <b id="gba-skillbook-1-id"></b><br><br>
+									<div>Item: <span id="gba-skillbook-1-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-skillbook-1-id"></span></div>
 
 									<button id="gba-skillbook-1-get" type="button" class="button-style">Get</button>
 									<button id="gba-skillbook-1-set" type="button" class="button-style">Set</button>
@@ -211,10 +205,10 @@
 							</div>
 
 							<!-- Item Slot 3. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-skillbook-2-name"></b><br>
-									<label>ID: </label> <b id="gba-skillbook-2-id"></b><br><br>
+									<div>Item: <span id="gba-skillbook-2-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-skillbook-2-id"></span></div>
 
 									<button id="gba-skillbook-2-get" type="button" class="button-style">Get</button>
 									<button id="gba-skillbook-2-set" type="button" class="button-style">Set</button>
@@ -222,10 +216,10 @@
 							</div>
 
 							<!-- Item Slot 4. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-skillbook-3-name"></b><br>
-									<label>ID: </label> <b id="gba-skillbook-3-id"></b><br><br>
+									<div>Item: <span id="gba-skillbook-3-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-skillbook-3-id"></span></div>
 
 									<button id="gba-skillbook-3-get" type="button" class="button-style">Get</button>
 									<button id="gba-skillbook-3-set" type="button" class="button-style">Set</button>
@@ -233,10 +227,10 @@
 							</div>
 
 							<!-- Item Slot 5. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-skillbook-4-name"></b><br>
-									<label>ID: </label> <b id="gba-skillbook-4-id"></b><br><br>
+									<div>Item: <span id="gba-skillbook-4-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-skillbook-4-id"></span></div>
 
 									<button id="gba-skillbook-4-get" type="button" class="button-style">Get</button>
 									<button id="gba-skillbook-4-set" type="button" class="button-style">Set</button>
@@ -246,8 +240,8 @@
 							<!-- Item Slot 6. -->
 							<div class="card sub-card-transparent">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-skillbook-5-name"></b><br>
-									<label>ID: </label> <b id="gba-skillbook-5-id"></b><br><br>
+									<div>Item: <span id="gba-skillbook-5-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-skillbook-5-id"></span></div>
 
 									<button id="gba-skillbook-5-get" type="button" class="button-style">Get</button>
 									<button id="gba-skillbook-5-set" type="button" class="button-style">Set</button>
@@ -259,21 +253,19 @@
 			</div>
 
 			<div class="row">
-				<div class="col-sm-4">
+				<div class="col-sm-4 mb-3">
 					<!-- Mailbox card. -->
 					<div class="card sub-card-transparent">
-						<!-- Title. -->
 						<div class="card-header card-title-bar">
 							<h5 class="card-title">Mailbox</h5>
 						</div>
 
-						<!-- content. -->
 						<div class="card-body card-clr">
 							<!-- Item Slot 1. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-mailbox-0-name"></b><br>
-									<label>ID: </label> <b id="gba-mailbox-0-id"></b><br><br>
+									<div>Item: <span id="gba-mailbox-0-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-mailbox-0-id"></span></div>
 
 									<button id="gba-mailbox-0-get" type="button" class="button-style">Get</button>
 									<button id="gba-mailbox-0-set" type="button" class="button-style">Set</button>
@@ -281,10 +273,10 @@
 							</div>
 
 							<!-- Item Slot 2. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-mailbox-1-name"></b><br>
-									<label>ID: </label> <b id="gba-mailbox-1-id"></b><br><br>
+									<div>Item: <span id="gba-mailbox-1-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-mailbox-1-id"></span></div>
 
 									<button id="gba-mailbox-1-get" type="button" class="button-style">Get</button>
 									<button id="gba-mailbox-1-set" type="button" class="button-style">Set</button>
@@ -292,10 +284,10 @@
 							</div>
 
 							<!-- Item Slot 3. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-mailbox-2-name"></b><br>
-									<label>ID: </label> <b id="gba-mailbox-2-id"></b><br><br>
+									<div>Item: <span id="gba-mailbox-2-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-mailbox-2-id"></span></div>
 
 									<button id="gba-mailbox-2-get" type="button" class="button-style">Get</button>
 									<button id="gba-mailbox-2-set" type="button" class="button-style">Set</button>
@@ -303,10 +295,10 @@
 							</div>
 
 							<!-- Item Slot 4. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-mailbox-3-name"></b><br>
-									<label>ID: </label> <b id="gba-mailbox-3-id"></b><br><br>
+									<div>Item: <span id="gba-mailbox-3-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-mailbox-3-id"></span></div>
 
 									<button id="gba-mailbox-3-get" type="button" class="button-style">Get</button>
 									<button id="gba-mailbox-3-set" type="button" class="button-style">Set</button>
@@ -314,10 +306,10 @@
 							</div>
 
 							<!-- Item Slot 5. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-mailbox-4-name"></b><br>
-									<label>ID: </label> <b id="gba-mailbox-4-id"></b><br><br>
+									<div>Item: <span id="gba-mailbox-4-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-mailbox-4-id"></span></div>
 
 									<button id="gba-mailbox-4-get" type="button" class="button-style">Get</button>
 									<button id="gba-mailbox-4-set" type="button" class="button-style">Set</button>
@@ -327,8 +319,8 @@
 							<!-- Item Slot 6. -->
 							<div class="card sub-card-transparent">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-mailbox-5-name"></b><br>
-									<label>ID: </label> <b id="gba-mailbox-5-id"></b><br><br>
+									<div>Item: <span id="gba-mailbox-5-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-mailbox-5-id"></span></div>
 
 									<button id="gba-mailbox-5-get" type="button" class="button-style">Get</button>
 									<button id="gba-mailbox-5-set" type="button" class="button-style">Set</button>
@@ -341,18 +333,16 @@
 				<div class="col-sm-4">
 					<!-- Inventory card. -->
 					<div class="card sub-card-transparent">
-						<!-- Title. -->
 						<div class="card-header card-title-bar">
 							<h5 class="card-title">Inventory</h5>
 						</div>
 
-						<!-- content. -->
 						<div class="card-body card-clr">
 							<!-- Item Slot 1. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-inventory-0-name"></b><br>
-									<label>ID: </label> <b id="gba-inventory-0-id"></b><br><br>
+									<div>Item: <span id="gba-inventory-0-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-inventory-0-id"></span></div>
 
 									<button id="gba-inventory-0-get" type="button" class="button-style">Get</button>
 									<button id="gba-inventory-0-set" type="button" class="button-style">Set</button>
@@ -360,10 +350,10 @@
 							</div>
 
 							<!-- Item Slot 2. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-inventory-1-name"></b><br>
-									<label>ID: </label> <b id="gba-inventory-1-id"></b><br><br>
+									<div>Item: <span id="gba-inventory-1-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-inventory-1-id"></span></div>
 
 									<button id="gba-inventory-1-get" type="button" class="button-style">Get</button>
 									<button id="gba-inventory-1-set" type="button" class="button-style">Set</button>
@@ -371,10 +361,10 @@
 							</div>
 
 							<!-- Item Slot 3. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-inventory-2-name"></b><br>
-									<label>ID: </label> <b id="gba-inventory-2-id"></b><br><br>
+									<div>Item: <span id="gba-inventory-2-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-inventory-2-id"></span></div>
 
 									<button id="gba-inventory-2-get" type="button" class="button-style">Get</button>
 									<button id="gba-inventory-2-set" type="button" class="button-style">Set</button>
@@ -382,10 +372,10 @@
 							</div>
 
 							<!-- Item Slot 4. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-inventory-3-name"></b><br>
-									<label>ID: </label> <b id="gba-inventory-3-id"></b><br><br>
+									<div>Item: <span id="gba-inventory-3-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-inventory-3-id"></span></div>
 
 									<button id="gba-inventory-3-get" type="button" class="button-style">Get</button>
 									<button id="gba-inventory-3-set" type="button" class="button-style">Set</button>
@@ -393,10 +383,10 @@
 							</div>
 
 							<!-- Item Slot 5. -->
-							<div class="card sub-card-transparent">
+							<div class="card sub-card-transparent mb-3">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-inventory-4-name"></b><br>
-									<label>ID: </label> <b id="gba-inventory-4-id"></b><br><br>
+									<div>Item: <span id="gba-inventory-4-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-inventory-4-id"></span></div>
 
 									<button id="gba-inventory-4-get" type="button" class="button-style">Get</button>
 									<button id="gba-inventory-4-set" type="button" class="button-style">Set</button>
@@ -406,8 +396,8 @@
 							<!-- Item Slot 6. -->
 							<div class="card sub-card-transparent">
 								<div class="card-body card-clr">
-									<label>Item: </label> <b id="gba-inventory-5-name"></b><br>
-									<label>ID: </label> <b id="gba-inventory-5-id"></b><br><br>
+									<div>Item: <span id="gba-inventory-5-name"></span></div>
+									<div class="mb-3">ID: <span id="gba-inventory-5-id"></span></div>
 
 									<button id="gba-inventory-5-get" type="button" class="button-style">Get</button>
 									<button id="gba-inventory-5-set" type="button" class="button-style">Set</button>

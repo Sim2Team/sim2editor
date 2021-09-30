@@ -27,15 +27,4 @@
 
 window.onload = function() {
 	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
-
-	/* Highlight current page navigator button. */
-	document.getElementById(document.getElementById("navbar-page-button").dataset.btn).classList.add("selected-bar-button");
 };
-
-
-/* Top Navigation bars. */
-document.getElementById("navbar-home").onclick = () => window.location.href = "/Sim2Editor/";
-document.getElementById("navbar-about").onclick = () => window.location.href = "about";
-document.getElementById("navbar-faq").onclick = () => window.location.href = "faq";
-document.getElementById("navbar-features").onclick = () => window.location.href = "features";
-document.getElementById("navbar-save-editor").onclick = () => window.location.href = "save-editor";
