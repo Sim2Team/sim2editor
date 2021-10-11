@@ -1,6 +1,6 @@
 /*
 *   This file is part of Sim2Editor
-*   Copyright (C) 2021 SuperSaiyajinStackZ
+*   Copyright (C) 2021 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -42,9 +42,8 @@ let CurrentMenu = ""; // Used so we can keep track of, which sub menu is current
 
 /* Show a warning about the Save-Editor with an alert at startup. */
 window.onload = function() {
-	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
-
-	alert("This save-editor is a work in progress.\n\nALWAYS make a backup of your Savefile before you try using it, because I cannot 100% guarantee that it always work without issues.\n\nI'm not responsible for any data loss you potential might have.\n\nYou are warned.");
+	document.getElementById("theme-selector").value = localStorage.theme;
+	alert("This save-editor is a work in progress.\n\nALWAYS make a backup of your Savefile before you try using it, because we cannot 100% guarantee that it always will work without issues.\n\nWe are not responsible for any data loss you potential might have.\n\nYou are warned.");
 };
 
 

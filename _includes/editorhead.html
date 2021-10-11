@@ -1,0 +1,16 @@
+<!-- Sim2Editor's Editor Head. -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Sim2Team">
+	<meta name="description" content="{{ page.description }}">
+
+	<title>{{ page.title }}</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<link rel="stylesheet" id="themeCSS" href="{{ "/assets/css/green.css" | absolute_url }}">
+
+	<script src="{{ "/assets/js/theme-handler.js" | absolute_url }}"></script>
+
+	{% include editor/s2editor-includes.html %} <!-- Include Sim2Editor-Core related stuff. -->
+	{% include editor/editor-includes.html %} <!-- Includes for the editor. -->
+</head>
