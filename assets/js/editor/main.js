@@ -1,6 +1,6 @@
 /*
 *   This file is part of Sim2Editor
-*   Copyright (C) 2021 Sim2Team
+*   Copyright (C) 2021-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@ import { InitGBASocialMoveEditor } from "./menus/gba/gba-social-move-menu.js";
 import { InitNDSGeneralEditor } from "./menus/nds/nds-general-menu.js";
 import { InitializeNDSSlotEditor } from "./menus/nds/nds-slot-menu.js";
 
-import { SavType, SavUtils_Finish, SavUtils_LoadSav } from "../Sim2Editor-Core/shared/savutils.js";
+import { SavType, SavUtils_ChangesMade, SavUtils_Finish, SavUtils_LoadSav } from "../core/shared/savutils.js";
 import { InitGBAPlotTwistMenu } from "./menus/gba/gba-plot-twist-menu.js";
 import { InitGBAItemPackageEditor } from "./menus/gba/gba-item-package-menu.js";
 
@@ -43,7 +43,7 @@ let CurrentMenu = ""; // Used so we can keep track of, which sub menu is current
 /* Show a warning about the Save-Editor with an alert at startup. */
 window.onload = function() {
 	document.getElementById("theme-selector").value = localStorage.theme;
-	alert("This save-editor is a work in progress.\n\nALWAYS make a backup of your Savefile before you try using it, because we cannot 100% guarantee that it always will work without issues.\n\nWe are not responsible for any data loss you potential might have.\n\nYou are warned.");
+	alert("This Save-Editor is a work in progress.\n\nALWAYS make a backup of your Savefile before you try using it, because we cannot 100% guarantee that it always will work without issues.\n\nWe are not responsible for any data loss you potential might have.\n\nYou are warned.");
 };
 
 
@@ -76,7 +76,7 @@ function LoadSav() {
 
 /* The Save error callback. */
 function SavError() {
-	alert("You haven't loaded a valid Savefile!\nMake sure it is a valid The Sims 2 Game Boy Advance or Nintendo DS Savefile.\n\nIf you are certain the Savefile is a proper one, then feel free to report it on the Sim2Server discord server: https://sim2team.github.io/discord under the 'Sim2Editor' channel in the category 'Sim2Projects'.");
+	alert("You haven't loaded a valid Savefile!\nMake sure it is a valid The Sims 2 Game Boy Advance or Nintendo DS Savefile.\n\nIf you are certain the Savefile is a proper one, then feel free to report it on the Sim2Server discord server: https://sim2team.github.io/discord under the 'Sim2Editor' thread at the Investigations-and-projects category at the channel #projects.");
 };
 
 
@@ -183,7 +183,7 @@ document.getElementById("gba-item-package").onclick = () => SwitchMenu("gba-item
 document.getElementById("nds-general").onclick = () => SwitchMenu("nds-general");
 
 
-/* Finish of save editing. */
+/* Finish of Save Editing. */
 document.getElementById("sav-finish").onclick = function() {
 	SavUtils_Finish(true); // Create download for the new Savefile.
 
@@ -198,7 +198,8 @@ document.getElementById("sav-finish").onclick = function() {
 };
 
 
-/* Warn user on editor leave. */
+/* Warn user on Editor leave. */
 window.onbeforeunload = function() {
-	return "You are about to leave the Save Editor.\n\nAre you sure you want to do that? Any changes will be lost! You're warned.";
+	if (SavUtils_ChangesMade()) return "You are about to leave the Save Editor.\n\nAre you sure you want to do that? Any changes will be lost! You're warned.";
+	return "";
 };

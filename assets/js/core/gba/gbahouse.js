@@ -1,6 +1,6 @@
 /*
-*   This file is part of Sim2Editor
-*   Copyright (C) 2021-2022 Sim2Team
+*   This file is part of Sim2Editor-JSCore
+*   Copyright (C) 2020-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -25,6 +25,22 @@
 */
 
 
-window.onload = function() {
-	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
+import { SavUtils_ReadBits, SavUtils_WriteBits } from "../shared/savutils.js";
+import { S2Editor_GBAHouseItem } from "./gbahouseitem.js";
+
+
+export class S2Editor_GBAHouse {
+	constructor(Offs) { this.Offs = Offs; };
+
+	/*
+		Get and Set the Room Design.
+		Only 0 - 3 SHOULD be used at all, the others aren't actual room designs and instead may cause issues.
+	*/
+	Roomdesign(V) {
+		if (V != undefined) SavUtils_WriteBits(this.Offs + 0x2E, true, V);
+		else return SavUtils_ReadBits(this.Offs + 0x2E, true);
+	};
+
+	/* Get the Items of your House / Room. */
+	Items() { return new S2Editor_GBAHouseItem(this.Offs + 0xD6); };
 };

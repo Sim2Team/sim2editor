@@ -1,6 +1,6 @@
 /*
-*   This file is part of Sim2Editor
-*   Copyright (C) 2021-2022 Sim2Team
+*   This file is part of Sim2Editor-JSCore
+*   Copyright (C) 2020-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -25,6 +25,31 @@
 */
 
 
-window.onload = function() {
-	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
+import { SavUtils_Read, SavUtils_ReadBit, SavUtils_Write, SavUtils_WriteBit, SavUtils_WriteBits } from "../shared/savutils.js";
+
+
+export class S2Editor_GBAMinigame {
+	constructor(Offs, Game) {
+		this.Offs = Offs;
+		this.Game = Game;
+	};
+
+	/* Get and Set if you played that game already today. */
+	Played(V) {
+		if (V != undefined) SavUtils_WriteBit(this.Offs, this.Game, V);
+		else return SavUtils_ReadBit(this.Offs, this.Game);
+	};
+
+	/* Get and Set the Minigame Level. */
+	Level(V, Meta) {
+		if (V != undefined) {
+			SavUtils_Write("uint8_t", this.Offs + 0x24 + this.Game, Math.min(5, V));
+
+			/* Optionally: Set to Metadata / Settings as well. */
+			if (Meta) SavUtils_WriteBits(0x10 + (this.Game / 2), ((this.Game % 2) == 0), Math.min(5, V));
+
+		} else {
+			return SavUtils_Read("uint8_t", this.Offs + 0x24 + this.Game);
+		}
+	};
 };

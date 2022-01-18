@@ -1,6 +1,6 @@
 /*
 *   This file is part of Sim2Editor
-*   Copyright (C) 2021 Sim2Team
+*   Copyright (C) 2021-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 *         reasonable ways as different from the original version.
 */
 
-import { SimUtils_RatingFormat, SimUtils_SimoleonFormat, SimUtils_TimeString } from "../../../Sim2Editor-Core/shared/simutils.js";
+import { SimUtils_RatingFormat, SimUtils_SimoleonFormat, SimUtils_TimeString } from "../../../core/shared/simutils.js";
 import { GBAActiveSlot, GBACurrentSlot } from "./gba-slot-menu.js";
 
 
@@ -40,13 +40,13 @@ export function InitGBAGeneralEditor() {
 		document.getElementById("gba-general-time-hour").value = GBAActiveSlot.Time()[0];
 		document.getElementById("gba-general-time-minute").value = GBAActiveSlot.Time()[1];
 
-		/* Collectables - Amount. */
+		/* Collectibles - Amount. */
 		document.getElementById("gba-general-cans-amount").value = GBAActiveSlot.Cans();
 		document.getElementById("gba-general-cowbells-amount").value = GBAActiveSlot.Cowbells();
 		document.getElementById("gba-general-spaceship-amount").value = GBAActiveSlot.Spaceship();
 		document.getElementById("gba-general-fuelrods-amount").value = GBAActiveSlot.Fuelrods();
 
-		/* Collectables - Sell Prices. */
+		/* Collectibles - Sell Prices. */
 		document.getElementById("gba-general-cans-price").value = GBAActiveSlot.CansPrice();
 		document.getElementById("gba-general-cowbells-price").value = GBAActiveSlot.CowbellsPrice();
 		document.getElementById("gba-general-spaceship-price").value = GBAActiveSlot.SpaceshipPrice();
@@ -66,6 +66,8 @@ export function InitGBAGeneralEditor() {
 	The following functions update the slot info display as well.
 */
 function UpdateName() {
+	if (document.getElementById("gba-general-name").value == "") return; // Don't let it blank.
+
 	GBAActiveSlot.Name(document.getElementById("gba-general-name").value);
 	document.getElementById(GBACurrentSlot + "-name").innerText = GBAActiveSlot.Name();
 };
@@ -84,6 +86,7 @@ function UpdateTime() {
 	let EditedTime = new Uint8Array(0x2);
 	EditedTime[0] = document.getElementById("gba-general-time-hour").value;
 	EditedTime[1] = document.getElementById("gba-general-time-minute").value;
+	EditedTime[2] = GBAActiveSlot.Time()[2]; // Seconds, for now not editable, maybe later.
 
 	/* Ensure no invalid time has been entered. */
 	if (EditedTime[0] < 24 && EditedTime[1] < 60) {
@@ -101,13 +104,13 @@ document.getElementById("gba-general-ratings").onchange = () => UpdateRatings();
 document.getElementById("gba-general-time-hour").onchange = () => UpdateTime();
 document.getElementById("gba-general-time-minute").onchange = () => UpdateTime();
 
-/* Set Collectables - Amounts. */
+/* Set Collectibles - Amounts. */
 document.getElementById("gba-general-cans-amount").onchange = () => GBAActiveSlot.Cans(document.getElementById("gba-general-cans-amount").value);
 document.getElementById("gba-general-cowbells-amount").onchange = () => GBAActiveSlot.Cowbells(document.getElementById("gba-general-cowbells-amount").value);
 document.getElementById("gba-general-spaceship-amount").onchange = () => GBAActiveSlot.Spaceship(document.getElementById("gba-general-spaceship-amount").value);
 document.getElementById("gba-general-fuelrods-amount").onchange = () => GBAActiveSlot.Fuelrods(document.getElementById("gba-general-fuelrods-amount").value);
 
-/* Set Collectables - Sell Prices. */
+/* Set Collectibles - Sell Prices. */
 document.getElementById("gba-general-cans-price").onchange = () => GBAActiveSlot.CansPrice(document.getElementById("gba-general-cans-price").value);
 document.getElementById("gba-general-cowbells-price").onchange = () => GBAActiveSlot.CowbellsPrice(document.getElementById("gba-general-cowbells-price").value);
 document.getElementById("gba-general-spaceship-price").onchange = () => GBAActiveSlot.SpaceshipPrice(document.getElementById("gba-general-spaceship-price").value);

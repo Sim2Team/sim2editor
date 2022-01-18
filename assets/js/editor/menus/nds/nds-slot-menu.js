@@ -1,6 +1,6 @@
 /*
 *   This file is part of Sim2Editor
-*   Copyright (C) 2021 Sim2Team
+*   Copyright (C) 2021-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -24,8 +24,8 @@
 *         reasonable ways as different from the original version.
 */
 
-import { SimUtils_SimoleonFormat } from "../../../Sim2Editor-Core/shared/simutils.js"
-import { Sav } from "../../../Sim2Editor-Core/shared/savutils.js";
+import { SimUtils_SimoleonFormat } from "../../../core/shared/simutils.js"
+import { Sav } from "../../../core/shared/savutils.js";
 import { ReinitCurrentMenu, SwitchMenu } from "../../main.js";
 
 let InitialLoad = true;
@@ -35,21 +35,21 @@ export let NDSActiveSlot = undefined, NDSCurrentSlot = "";
 /*
 	Initializes the Nintendo DS Save Slot Menu.
 
-	This includes filling out the proper slot informations on the Slot cards and enable Loading.
+	This includes filling out the proper Slot informations on the Slot cards and enable Loading.
 */
 export function InitializeNDSSlotEditor() {
 	/* Initialize all existing Slots. */
-	for (let _Slot = 0; _Slot < 3; _Slot++) {
-		if (Sav.SlotExist(_Slot)) { // Ensure slot exist.
-			let CurSlot = Sav.Slot(_Slot);
+	for (let Slot = 0; Slot < 3; Slot++) {
+		if (Sav.SlotExist(Slot)) { // Ensure slot exist.
+			let CurSlot = Sav.Slot(Slot);
 
-			document.getElementById("nds-slot" + (1 + _Slot).toString() + "-name").innerText = CurSlot.Name();
-			document.getElementById("nds-slot" + (1 + _Slot).toString() + "-simoleons").innerText = SimUtils_SimoleonFormat(CurSlot.Simoleons());
+			document.getElementById("nds-slot" + (1 + Slot).toString() + "-name").innerText = CurSlot.Name();
+			document.getElementById("nds-slot" + (1 + Slot).toString() + "-simoleons").innerText = SimUtils_SimoleonFormat(CurSlot.Simoleons());
 
-			document.getElementById("nds-slot" + (1 + _Slot).toString() + "-load").disabled = false; // Set that Slot can be loaded.
+			document.getElementById("nds-slot" + (1 + Slot).toString() + "-load").disabled = false; // Set that Slot can be loaded.
 
 		} else {
-			document.getElementById("nds-slot" + (1 + _Slot).toString() + "-load").disabled = true; // Disabled!
+			document.getElementById("nds-slot" + (1 + Slot).toString() + "-load").disabled = true; // Disabled!
 		}
 	}
 };
@@ -58,17 +58,17 @@ export function InitializeNDSSlotEditor() {
 /*
 	Initialize a Nintendo DS Save Slot.
 
-	_Slot: The Slot to initialize ( 0 - 2 ).
+	Slot: The Slot to initialize ( 0 - 2 ).
 */
-function InitSlot(_Slot) {
+function InitSlot(Slot) {
 	/* Remove selected border of the old slot. */
 	if (!InitialLoad) document.getElementById(NDSCurrentSlot).classList.remove("selected-slot");
 
 	/* Initialize the active Slot and display it as the new state. */
-	NDSActiveSlot = Sav.Slot(_Slot);
-	NDSCurrentSlot = "nds-slot" + (1 + _Slot).toString();
+	NDSActiveSlot = Sav.Slot(Slot);
+	NDSCurrentSlot = "nds-slot" + (1 + Slot).toString();
 	document.getElementById(NDSCurrentSlot).classList.add("selected-slot");
-	document.getElementById("nds-slot-load-text").innerText = "Loaded Slot: " + (1 + _Slot).toString();
+	document.getElementById("nds-slot-load-text").innerText = "Loaded Slot: " + (1 + Slot).toString();
 
 	/* Initial Load --> Show the Editor Tabs + actual Menus. */
 	if (InitialLoad) {

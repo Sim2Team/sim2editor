@@ -1,6 +1,6 @@
 /*
 *   This file is part of Sim2Editor
-*   Copyright (C) 2021 Sim2Team
+*   Copyright (C) 2021-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 *         reasonable ways as different from the original version.
 */
 
-import S2Editor_GBAItemList_EN from "../../../Sim2Editor-Core/strings/en/gba/itemlist.js";
+import S2Editor_GBAItemList_EN from "../../../core/strings/en/gba/itemlist.js";
 import { GBAActiveSlot } from "./gba-slot-menu.js";
 
 let ListInitialized = false;

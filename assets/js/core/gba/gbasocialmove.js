@@ -1,6 +1,6 @@
 /*
-*   This file is part of Sim2Editor
-*   Copyright (C) 2021-2022 Sim2Team
+*   This file is part of Sim2Editor-JSCore
+*   Copyright (C) 2020-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -25,6 +25,41 @@
 */
 
 
-window.onload = function() {
-	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
+import { SavUtils_Read, SavUtils_Write } from "../shared/savutils.js";
+
+/*
+	enum class SocialMoveFlag : uint8_t {
+		Locked = 0x0,
+		Unlocked = 0x1,
+		Blocked = 0x2
+	};
+*/
+
+
+export class S2Editor_GBASocialMove {
+	constructor(Offs, Move) {
+		this.Offs = Offs;
+		this.Move = Move;
+	};
+
+	/* Get Social Move Index. */
+	Index() { return this.Move; };
+
+	/* Get and Set the Social Move Flag. See commented enum class C++ version above for reference of values. */
+	Flag(V) {
+		if (V != undefined) SavUtils_Write("uint8_t", this.Offs, Math.min(2, V));
+		else return SavUtils_Read("uint8_t", this.Offs);
+	};
+
+	/* Get and Set the Social Move Level. */
+	Level(V) {
+		if (V != undefined) SavUtils_Write("uint8_t", this.Offs + 0x4, Math.min(3, V));
+		else return SavUtils_Read("uint8_t", this.Offs + 0x4);
+	};
+
+	/* Get and Set the Social Move Blocked Hours. */
+	BlockedHours(V) {
+		if (V != undefined) SavUtils_Write("uint8_t", this.Offs + 0x6, V);
+		else return SavUtils_Read("uint8_t", this.Offs + 0x6);
+	};
 };

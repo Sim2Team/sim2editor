@@ -1,6 +1,6 @@
 /*
-*   This file is part of Sim2Editor
-*   Copyright (C) 2021-2022 Sim2Team
+*   This file is part of Sim2Editor-JSCore
+*   Copyright (C) 2020-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -24,7 +24,14 @@
 *         reasonable ways as different from the original version.
 */
 
+const S2Editor_GBACasts_DE = [
+	"Imperator Xizzle", "Burpel", "Ara Fusilli", "Kulio Raubein",
+	"Avra Kadavra", "Bigfoot", "Frankie Fusilli", "Eber-Eddie",
+	"Bruno Mezzoalto", "Heinz Ehrlicher", "Siegfried Gülle", "Stiernacken-Jimmy",
+	"Katie Wintergipfel", "Lutz G. Roßeklappe", "Mama Eber", "Wilma Welle",
+	"Maulwurfkönig", "Mumie", "Alfred Optimus", "Penelope Rot",
+	"Pfeffer-Paule", "Heini Stiesel", "Simon Paco Pancho", "Eugen Panza",
+	"Tristan Legende", "Yeti"
+];
 
-window.onload = function() {
-	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
-};
+export default S2Editor_GBACasts_DE;

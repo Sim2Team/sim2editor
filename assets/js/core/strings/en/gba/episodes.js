@@ -1,6 +1,6 @@
 /*
-*   This file is part of Sim2Editor
-*   Copyright (C) 2021-2022 Sim2Team
+*   This file is part of Sim2Editor-JSCore
+*   Copyright (C) 2020-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -24,7 +24,11 @@
 *         reasonable ways as different from the original version.
 */
 
+const S2Editor_GBAEpisodes_EN = [
+	"It All Began", "Buried By the Mob", "What Digs Beneath", "Aliens Arrived",
+	"Blackout!", "A Brand New Scent", "The New Cola", "There Was This Mummy",
+	"Triassic Trouble", "The Doomed Earth", "It All Came to an End", "A Very Special Reunion",
+	"Unofficial episode"
+];
 
-window.onload = function() {
-	if (localStorage.theme) document.getElementById("theme-selector").value = localStorage.theme;
-};
+export default S2Editor_GBAEpisodes_EN;

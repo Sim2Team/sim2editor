@@ -1,6 +1,6 @@
 /*
 *   This file is part of Sim2Editor
-*   Copyright (C) 2021 Sim2Team
+*   Copyright (C) 2021-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 *         reasonable ways as different from the original version.
 */
 
-import { SimUtils_SimoleonFormat } from "../../../Sim2Editor-Core/shared/simutils.js";
+import { SimUtils_SimoleonFormat } from "../../../core/shared/simutils.js";
 import { NDSActiveSlot, NDSCurrentSlot } from "./nds-slot-menu.js";
 
 
@@ -37,7 +37,7 @@ export function InitNDSGeneralEditor() {
 		document.getElementById("nds-general-name").value = NDSActiveSlot.Name();
 		document.getElementById("nds-general-simoleons").value = NDSActiveSlot.Simoleons();
 
-		/* Collectables. */
+		/* Collectibles. */
 		document.getElementById("nds-general-fuelrods-amount").value = NDSActiveSlot.Fuelrods();
 		document.getElementById("nds-general-plates-amount").value = NDSActiveSlot.Plates();
 		document.getElementById("nds-general-gourds-amount").value = NDSActiveSlot.Gourds();
@@ -57,6 +57,8 @@ export function InitNDSGeneralEditor() {
 	The following functions update the slot info display as well.
 */
 function UpdateName() {
+	if (document.getElementById("nds-general-name").value == "") return; // Don't let it blank.
+
 	NDSActiveSlot.Name(document.getElementById("nds-general-name").value);
 	document.getElementById(NDSCurrentSlot + "-name").innerText = NDSActiveSlot.Name();
 };
@@ -71,7 +73,7 @@ function UpdateSimoleons() {
 document.getElementById("nds-general-name").onchange = () => UpdateName();
 document.getElementById("nds-general-simoleons").onchange = () => UpdateSimoleons();
 
-/* Set Collectables. */
+/* Set Collectibles. */
 document.getElementById("nds-general-fuelrods-amount").onchange = () => NDSActiveSlot.Fuelrods(document.getElementById("nds-general-fuelrods-amount").value);
 document.getElementById("nds-general-plates-amount").onchange = () => NDSActiveSlot.Plates(document.getElementById("nds-general-plates-amount").value);
 document.getElementById("nds-general-gourds-amount").onchange = () => NDSActiveSlot.Gourds(document.getElementById("nds-general-gourds-amount").value);

@@ -1,6 +1,6 @@
 /*
 *   This file is part of Sim2Editor
-*   Copyright (C) 2021 Sim2Team
+*   Copyright (C) 2021-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -24,8 +24,8 @@
 *         reasonable ways as different from the original version.
 */
 
-import { SimUtils_RatingFormat, SimUtils_SimoleonFormat, SimUtils_TimeString } from "../../../Sim2Editor-Core/shared/simutils.js"
-import { Sav } from "../../../Sim2Editor-Core/shared/savutils.js";
+import { SimUtils_RatingFormat, SimUtils_SimoleonFormat, SimUtils_TimeString } from "../../../core/shared/simutils.js"
+import { Sav } from "../../../core/shared/savutils.js";
 import { ReinitCurrentMenu, SwitchMenu } from "../../main.js";
 
 let InitialLoad = true;
@@ -35,24 +35,24 @@ export let GBAActiveSlot = undefined, GBACurrentSlot = "";
 /*
 	Initializes the Game Boy Advance Save Slot Menu.
 
-	This includes filling out the proper slot informations on the Slot cards and enable Loading.
+	This includes filling out the proper Slot informations on the Slot cards and enable Loading.
 */
 export function InitializeGBASlotEditor() {
 	/* Initialize all existing Slots. */
-	for (let _Slot = 1; _Slot < 5; _Slot++) {
-		if (Sav.SlotExist(_Slot)) { // Ensure slot exist.
-			let CurSlot = Sav.Slot(_Slot);
+	for (let Slot = 1; Slot < 5; Slot++) {
+		if (Sav.SlotExist(Slot)) { // Ensure Slot exist.
+			let CurSlot = Sav.Slot(Slot);
 
-			/* Init Name, Simoleons, Ratings and Time slot info. */
-			document.getElementById("gba-slot" + _Slot.toString() + "-name").innerText = CurSlot.Name();
-			document.getElementById("gba-slot" + _Slot.toString() + "-simoleons").innerText = SimUtils_SimoleonFormat(CurSlot.Simoleons());
-			document.getElementById("gba-slot" + _Slot.toString() + "-ratings").innerText = SimUtils_RatingFormat(CurSlot.Ratings());
-			document.getElementById("gba-slot" + _Slot.toString() + "-time").innerText = SimUtils_TimeString(CurSlot.Time(), false);
+			/* Init Name, Simoleons, Ratings and Time Slot info. */
+			document.getElementById("gba-slot" + Slot.toString() + "-name").innerText = CurSlot.Name();
+			document.getElementById("gba-slot" + Slot.toString() + "-simoleons").innerText = SimUtils_SimoleonFormat(CurSlot.Simoleons());
+			document.getElementById("gba-slot" + Slot.toString() + "-ratings").innerText = SimUtils_RatingFormat(CurSlot.Ratings());
+			document.getElementById("gba-slot" + Slot.toString() + "-time").innerText = SimUtils_TimeString(CurSlot.Time(), false);
 
-			document.getElementById("gba-slot" + _Slot.toString() + "-load").disabled = false; // Set that Slot can be loaded.
+			document.getElementById("gba-slot" + Slot.toString() + "-load").disabled = false; // Set that Slot can be loaded.
 
 		} else {
-			document.getElementById("gba-slot" + _Slot.toString() + "-load").disabled = true; // Disabled!
+			document.getElementById("gba-slot" + Slot.toString() + "-load").disabled = true; // Disabled!
 		}
 	}
 };
@@ -61,17 +61,17 @@ export function InitializeGBASlotEditor() {
 /*
 	Initialize a Game Boy Advance Save Slot.
 
-	_Slot: The Slot to initialize ( 1 - 4 ).
+	Slot: The Slot to initialize ( 1 - 4 ).
 */
-function InitSlot(_Slot) {
+function InitSlot(Slot) {
 	/* Remove selected border of the old slot. */
 	if (!InitialLoad) document.getElementById(GBACurrentSlot).classList.remove("selected-slot");
 
 	/* Initialize the active Slot and display it as the new state. */
-	GBAActiveSlot = Sav.Slot(_Slot);
-	GBACurrentSlot = "gba-slot" + _Slot.toString();
+	GBAActiveSlot = Sav.Slot(Slot);
+	GBACurrentSlot = "gba-slot" + Slot.toString();
 	document.getElementById(GBACurrentSlot).classList.add("selected-slot");
-	document.getElementById("gba-slot-load-text").innerText = "Loaded Slot: " + _Slot.toString();
+	document.getElementById("gba-slot-load-text").innerText = "Loaded Slot: " + Slot.toString();
 
 	/* Initial Load --> Show the Editor Tabs + actual Menus. */
 	if (InitialLoad) {

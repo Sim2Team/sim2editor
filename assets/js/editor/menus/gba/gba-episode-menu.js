@@ -1,6 +1,6 @@
 /*
 *   This file is part of Sim2Editor
-*   Copyright (C) 2021 Sim2Team
+*   Copyright (C) 2021-2022 Sim2Team
 *
 *   This program is free software: you can redistribute it and/or modify
 *   it under the terms of the GNU General Public License as published by
@@ -42,7 +42,10 @@ export function InitGBAEpisodeEditor() {
 			}
 
 			/* Episode Unlocked state. */
-			document.getElementById("gba-episode-" + Idx.toString() + "-unlocked").checked = EP.State();
+			document.getElementById("gba-episode-" + Idx.toString() + "-unlocked").checked = EP.Unlocked();
+
+			/* Episode Played state. */
+			document.getElementById("gba-episode-" + Idx.toString() + "-played").checked = EP.Played();
 		}
 	}
 };
@@ -53,74 +56,85 @@ document.getElementById("gba-episode-0-rating-0").onchange = () => GBAActiveSlot
 document.getElementById("gba-episode-0-rating-1").onchange = () => GBAActiveSlot.Episode(0).Rating(1, document.getElementById("gba-episode-0-rating-1").value);
 document.getElementById("gba-episode-0-rating-2").onchange = () => GBAActiveSlot.Episode(0).Rating(2, document.getElementById("gba-episode-0-rating-2").value);
 document.getElementById("gba-episode-0-rating-3").onchange = () => GBAActiveSlot.Episode(0).Rating(3, document.getElementById("gba-episode-0-rating-3").value);
-document.getElementById("gba-episode-0-unlocked").onchange = () => GBAActiveSlot.Episode(0).State(document.getElementById("gba-episode-0-unlocked").checked);
+document.getElementById("gba-episode-0-unlocked").onchange = () => GBAActiveSlot.Episode(0).Unlocked(document.getElementById("gba-episode-0-unlocked").checked);
+document.getElementById("gba-episode-0-played").onchange = () => GBAActiveSlot.Episode(0).Played(document.getElementById("gba-episode-0-played").checked);
 
 /* Set What Digs Beneath. */
 document.getElementById("gba-episode-1-rating-0").onchange = () => GBAActiveSlot.Episode(1).Rating(0, document.getElementById("gba-episode-1-rating-0").value);
 document.getElementById("gba-episode-1-rating-1").onchange = () => GBAActiveSlot.Episode(1).Rating(1, document.getElementById("gba-episode-1-rating-1").value);
 document.getElementById("gba-episode-1-rating-2").onchange = () => GBAActiveSlot.Episode(1).Rating(2, document.getElementById("gba-episode-1-rating-2").value);
 document.getElementById("gba-episode-1-rating-3").onchange = () => GBAActiveSlot.Episode(1).Rating(3, document.getElementById("gba-episode-1-rating-3").value);
-document.getElementById("gba-episode-1-unlocked").onchange = () => GBAActiveSlot.Episode(1).State(document.getElementById("gba-episode-1-unlocked").checked);
+document.getElementById("gba-episode-1-unlocked").onchange = () => GBAActiveSlot.Episode(1).Unlocked(document.getElementById("gba-episode-1-unlocked").checked);
+document.getElementById("gba-episode-1-played").onchange = () => GBAActiveSlot.Episode(1).Played(document.getElementById("gba-episode-1-played").checked);
 
 /* Set Aliens Arrived. */
 document.getElementById("gba-episode-2-rating-0").onchange = () => GBAActiveSlot.Episode(2).Rating(0, document.getElementById("gba-episode-2-rating-0").value);
 document.getElementById("gba-episode-2-rating-1").onchange = () => GBAActiveSlot.Episode(2).Rating(1, document.getElementById("gba-episode-2-rating-1").value);
 document.getElementById("gba-episode-2-rating-2").onchange = () => GBAActiveSlot.Episode(2).Rating(2, document.getElementById("gba-episode-2-rating-2").value);
 document.getElementById("gba-episode-2-rating-3").onchange = () => GBAActiveSlot.Episode(2).Rating(3, document.getElementById("gba-episode-2-rating-3").value);
-document.getElementById("gba-episode-2-unlocked").onchange = () => GBAActiveSlot.Episode(2).State(document.getElementById("gba-episode-2-unlocked").checked);
+document.getElementById("gba-episode-2-unlocked").onchange = () => GBAActiveSlot.Episode(2).Unlocked(document.getElementById("gba-episode-2-unlocked").checked);
+document.getElementById("gba-episode-2-played").onchange = () => GBAActiveSlot.Episode(2).Played(document.getElementById("gba-episode-2-played").checked);
 
 /* Set Blackout!. */
 document.getElementById("gba-episode-3-rating-0").onchange = () => GBAActiveSlot.Episode(3).Rating(0, document.getElementById("gba-episode-3-rating-0").value);
 document.getElementById("gba-episode-3-rating-1").onchange = () => GBAActiveSlot.Episode(3).Rating(1, document.getElementById("gba-episode-3-rating-1").value);
 document.getElementById("gba-episode-3-rating-2").onchange = () => GBAActiveSlot.Episode(3).Rating(2, document.getElementById("gba-episode-3-rating-2").value);
 document.getElementById("gba-episode-3-rating-3").onchange = () => GBAActiveSlot.Episode(3).Rating(3, document.getElementById("gba-episode-3-rating-3").value);
-document.getElementById("gba-episode-3-unlocked").onchange = () => GBAActiveSlot.Episode(3).State(document.getElementById("gba-episode-3-unlocked").checked);
+document.getElementById("gba-episode-3-unlocked").onchange = () => GBAActiveSlot.Episode(3).Unlocked(document.getElementById("gba-episode-3-unlocked").checked);
+document.getElementById("gba-episode-3-played").onchange = () => GBAActiveSlot.Episode(3).Played(document.getElementById("gba-episode-3-played").checked);
 
 /* Set A Brand New Scent. */
 document.getElementById("gba-episode-4-rating-0").onchange = () => GBAActiveSlot.Episode(4).Rating(0, document.getElementById("gba-episode-4-rating-0").value);
 document.getElementById("gba-episode-4-rating-1").onchange = () => GBAActiveSlot.Episode(4).Rating(1, document.getElementById("gba-episode-4-rating-1").value);
 document.getElementById("gba-episode-4-rating-2").onchange = () => GBAActiveSlot.Episode(4).Rating(2, document.getElementById("gba-episode-4-rating-2").value);
 document.getElementById("gba-episode-4-rating-3").onchange = () => GBAActiveSlot.Episode(4).Rating(3, document.getElementById("gba-episode-4-rating-3").value);
-document.getElementById("gba-episode-4-unlocked").onchange = () => GBAActiveSlot.Episode(4).State(document.getElementById("gba-episode-4-unlocked").checked);
+document.getElementById("gba-episode-4-unlocked").onchange = () => GBAActiveSlot.Episode(4).Unlocked(document.getElementById("gba-episode-4-unlocked").checked);
+document.getElementById("gba-episode-4-played").onchange = () => GBAActiveSlot.Episode(4).Played(document.getElementById("gba-episode-4-played").checked);
 
 /* Set The New Cola. */
 document.getElementById("gba-episode-5-rating-0").onchange = () => GBAActiveSlot.Episode(5).Rating(0, document.getElementById("gba-episode-5-rating-0").value);
 document.getElementById("gba-episode-5-rating-1").onchange = () => GBAActiveSlot.Episode(5).Rating(1, document.getElementById("gba-episode-5-rating-1").value);
 document.getElementById("gba-episode-5-rating-2").onchange = () => GBAActiveSlot.Episode(5).Rating(2, document.getElementById("gba-episode-5-rating-2").value);
 document.getElementById("gba-episode-5-rating-3").onchange = () => GBAActiveSlot.Episode(5).Rating(3, document.getElementById("gba-episode-5-rating-3").value);
-document.getElementById("gba-episode-5-unlocked").onchange = () => GBAActiveSlot.Episode(5).State(document.getElementById("gba-episode-5-unlocked").checked);
+document.getElementById("gba-episode-5-unlocked").onchange = () => GBAActiveSlot.Episode(5).Unlocked(document.getElementById("gba-episode-5-unlocked").checked);
+document.getElementById("gba-episode-5-played").onchange = () => GBAActiveSlot.Episode(5).Played(document.getElementById("gba-episode-5-played").checked);
 
 /* Set There Was This Mummy. */
 document.getElementById("gba-episode-6-rating-0").onchange = () => GBAActiveSlot.Episode(6).Rating(0, document.getElementById("gba-episode-6-rating-0").value);
 document.getElementById("gba-episode-6-rating-1").onchange = () => GBAActiveSlot.Episode(6).Rating(1, document.getElementById("gba-episode-6-rating-1").value);
 document.getElementById("gba-episode-6-rating-2").onchange = () => GBAActiveSlot.Episode(6).Rating(2, document.getElementById("gba-episode-6-rating-2").value);
 document.getElementById("gba-episode-6-rating-3").onchange = () => GBAActiveSlot.Episode(6).Rating(3, document.getElementById("gba-episode-6-rating-3").value);
-document.getElementById("gba-episode-6-unlocked").onchange = () => GBAActiveSlot.Episode(6).State(document.getElementById("gba-episode-6-unlocked").checked);
+document.getElementById("gba-episode-6-unlocked").onchange = () => GBAActiveSlot.Episode(6).Unlocked(document.getElementById("gba-episode-6-unlocked").checked);
+document.getElementById("gba-episode-6-played").onchange = () => GBAActiveSlot.Episode(6).Played(document.getElementById("gba-episode-6-played").checked);
 
 /* Set Triassic Trouble. */
 document.getElementById("gba-episode-7-rating-0").onchange = () => GBAActiveSlot.Episode(7).Rating(0, document.getElementById("gba-episode-7-rating-0").value);
 document.getElementById("gba-episode-7-rating-1").onchange = () => GBAActiveSlot.Episode(7).Rating(1, document.getElementById("gba-episode-7-rating-1").value);
 document.getElementById("gba-episode-7-rating-2").onchange = () => GBAActiveSlot.Episode(7).Rating(2, document.getElementById("gba-episode-7-rating-2").value);
 document.getElementById("gba-episode-7-rating-3").onchange = () => GBAActiveSlot.Episode(7).Rating(3, document.getElementById("gba-episode-7-rating-3").value);
-document.getElementById("gba-episode-7-unlocked").onchange = () => GBAActiveSlot.Episode(7).State(document.getElementById("gba-episode-7-unlocked").checked);
+document.getElementById("gba-episode-7-unlocked").onchange = () => GBAActiveSlot.Episode(7).Unlocked(document.getElementById("gba-episode-7-unlocked").checked);
+document.getElementById("gba-episode-7-played").onchange = () => GBAActiveSlot.Episode(7).Played(document.getElementById("gba-episode-7-played").checked);
 
 /* Set The Doomed Earth. */
 document.getElementById("gba-episode-8-rating-0").onchange = () => GBAActiveSlot.Episode(8).Rating(0, document.getElementById("gba-episode-8-rating-0").value);
 document.getElementById("gba-episode-8-rating-1").onchange = () => GBAActiveSlot.Episode(8).Rating(1, document.getElementById("gba-episode-8-rating-1").value);
 document.getElementById("gba-episode-8-rating-2").onchange = () => GBAActiveSlot.Episode(8).Rating(2, document.getElementById("gba-episode-8-rating-2").value);
 document.getElementById("gba-episode-8-rating-3").onchange = () => GBAActiveSlot.Episode(8).Rating(3, document.getElementById("gba-episode-8-rating-3").value);
-document.getElementById("gba-episode-8-unlocked").onchange = () => GBAActiveSlot.Episode(8).State(document.getElementById("gba-episode-8-unlocked").checked);
+document.getElementById("gba-episode-8-unlocked").onchange = () => GBAActiveSlot.Episode(8).Unlocked(document.getElementById("gba-episode-8-unlocked").checked);
+document.getElementById("gba-episode-8-played").onchange = () => GBAActiveSlot.Episode(8).Played(document.getElementById("gba-episode-8-played").checked);
 
 /* Set It All Came to an End. */
 document.getElementById("gba-episode-9-rating-0").onchange = () => GBAActiveSlot.Episode(9).Rating(0, document.getElementById("gba-episode-9-rating-0").value);
 document.getElementById("gba-episode-9-rating-1").onchange = () => GBAActiveSlot.Episode(9).Rating(1, document.getElementById("gba-episode-9-rating-1").value);
 document.getElementById("gba-episode-9-rating-2").onchange = () => GBAActiveSlot.Episode(9).Rating(2, document.getElementById("gba-episode-9-rating-2").value);
 document.getElementById("gba-episode-9-rating-3").onchange = () => GBAActiveSlot.Episode(9).Rating(3, document.getElementById("gba-episode-9-rating-3").value);
-document.getElementById("gba-episode-9-unlocked").onchange = () => GBAActiveSlot.Episode(9).State(document.getElementById("gba-episode-9-unlocked").checked);
+document.getElementById("gba-episode-9-unlocked").onchange = () => GBAActiveSlot.Episode(9).Unlocked(document.getElementById("gba-episode-9-unlocked").checked);
+document.getElementById("gba-episode-9-played").onchange = () => GBAActiveSlot.Episode(9).Played(document.getElementById("gba-episode-9-played").checked);
 
 /* Set A Very Special Reunion. */
 document.getElementById("gba-episode-10-rating-0").onchange = () => GBAActiveSlot.Episode(10).Rating(0, document.getElementById("gba-episode-10-rating-0").value);
 document.getElementById("gba-episode-10-rating-1").onchange = () => GBAActiveSlot.Episode(10).Rating(1, document.getElementById("gba-episode-10-rating-1").value);
 document.getElementById("gba-episode-10-rating-2").onchange = () => GBAActiveSlot.Episode(10).Rating(2, document.getElementById("gba-episode-10-rating-2").value);
 document.getElementById("gba-episode-10-rating-3").onchange = () => GBAActiveSlot.Episode(10).Rating(3, document.getElementById("gba-episode-10-rating-3").value);
-document.getElementById("gba-episode-10-unlocked").onchange = () => GBAActiveSlot.Episode(10).State(document.getElementById("gba-episode-10-unlocked").checked);
+document.getElementById("gba-episode-10-unlocked").onchange = () => GBAActiveSlot.Episode(10).Unlocked(document.getElementById("gba-episode-10-unlocked").checked);
+document.getElementById("gba-episode-10-played").onchange = () => GBAActiveSlot.Episode(10).Played(document.getElementById("gba-episode-10-played").checked);
