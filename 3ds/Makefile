@@ -81,7 +81,7 @@ CORESOURCE	:= ./core/source \
 COREINCLUDE	:= ../core/include \
 			  ../core/include/gba \
 			  ../core/include/nds \
-			  ../Core/include/shared
+			  ../core/include/shared
 
 
 SOURCES		:=	$(CORESOURCE) \
