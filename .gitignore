@@ -1,0 +1,11 @@
+*.bin
+*.d
+*.o
+*.lst
+*.map
+3ds/build/*
+*.t3x
+*.3dsx
+*.cia
+*.elf
+*.smdh

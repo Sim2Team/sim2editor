@@ -1,0 +1,21 @@
+--atlas -f rgba8888 -z auto
+
+appearance/gba/hairs/hair_0.png
+appearance/gba/hairs/hair_1.png
+appearance/gba/hairs/hair_2.png
+appearance/gba/hairs/hair_3.png
+appearance/gba/hairs/hair_4.png
+appearance/gba/hairs/hair_5.png
+appearance/gba/hairs/hair_6.png
+appearance/gba/hairs/hair_7.png
+
+appearance/gba/pants/pants_0.png
+appearance/gba/pants/pants_1.png
+appearance/gba/pants/pants_2.png
+
+appearance/gba/shirt/shirt_0.png
+appearance/gba/shirt/shirt_1.png
+appearance/gba/shirt/shirt_2.png
+appearance/gba/shirt/shirt_3.png
+appearance/gba/shirt/shirt_4.png
+appearance/gba/shirt/shirt_5.png
