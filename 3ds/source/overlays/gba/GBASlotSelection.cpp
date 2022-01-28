@@ -26,7 +26,7 @@
 
 #include "Common.hpp"
 #include "GBASlotSelection.hpp"
-#include "SAVUtils.hpp"
+#include "SavUtils.hpp"
 #include "SimUtils.hpp"
 #include "Strings.hpp"
 
