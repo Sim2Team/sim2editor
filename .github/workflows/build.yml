@@ -1,0 +1,96 @@
+name: Build Sim2Editor
+
+on:
+  push:
+    paths-ignore: ["*.md", screenshots]
+  pull_request:
+    branches: ["*"]
+    paths-ignore: ["*.md", screenshots]
+  release:
+    types: [created]
+
+jobs:
+  _3ds:
+    runs-on: ubuntu-latest
+    container: devkitpro/devkitarm
+    name: Build 3DS with Docker using devkitARM
+    outputs:
+      commit_hash: ${{ steps.build.outputs.commit_hash }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v1
+        with:
+          submodules: recursive
+      - name: Install tools
+        run: |
+          curl -L https://github.com/Steveice10/bannertool/releases/download/1.1.0/bannertool.zip -o bannertool.zip
+          7z e bannertool.zip linux-x86_64/bannertool
+          chmod +x bannertool
+          mv bannertool /usr/local/bin
+          rm bannertool.zip
+
+          curl -L https://github.com/3DSGuy/Project_CTR/releases/download/makerom-v0.17/makerom-v0.17-ubuntu_x86_64.zip -o makerom-v0.17-ubuntu_x86_64.zip
+          7z e makerom-v0.17-ubuntu_x86_64.zip
+          chmod +x makerom
+          mv makerom /usr/local/bin
+          rm makerom-v0.17-ubuntu_x86_64.zip
+      - name: Build
+        id: build
+        run: |
+          make -C 3ds
+
+          mkdir -p ~/artifacts
+          cp 3ds/Sim2Editor.3dsx ~/artifacts
+          cp 3ds/Sim2Editor.cia ~/artifacts
+
+          echo "::set-output name=commit_hash::$(git log --format=%h -1)"
+      - name: Publish build to GH Actions
+        uses: actions/upload-artifact@v2
+        with:
+          path: ~/artifacts/*
+          name: build
+
+  # Only run this for non-PR jobs.
+  publish_build:
+    runs-on: ubuntu-latest
+    name: Publish build to Sim2Team/extras
+    if: ${{ success() && !startsWith(github.ref, 'refs/pull') }}
+    needs: [_3ds]
+    env:
+      COMMIT_HASH: ${{ needs._3ds.outputs.commit_hash }}
+    outputs:
+      current_date: ${{ steps.commit.outputs.current_date }}
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+      - name: Upload to ${{ github.repository }} release
+        if: ${{ startsWith(github.ref, 'refs/tags') }}
+        run: |
+          ID=$(jq --raw-output '.release.id' $GITHUB_EVENT_PATH)
+
+          for file in ${{ github.workspace }}/*/*; do
+            AUTH_HEADER="Authorization: token ${{ secrets.GITHUB_TOKEN }}"
+            CONTENT_LENGTH="Content-Length: $(stat -c%s $file)"
+            CONTENT_TYPE="Content-Type: application/7z-x-compressed"
+            UPLOAD_URL="https://uploads.github.com/repos/${{ github.repository }}/releases/$ID/assets?name=$(basename $file)"
+
+            curl -XPOST -H "$AUTH_HEADER" -H "$CONTENT_LENGTH" -H "$CONTENT_TYPE" --upload-file "$file" "$UPLOAD_URL"
+          done
+      - name: Commit and push to Sim2Team/extras
+        id: commit
+        run: |
+          CURRENT_DATE=$(date +"%Y%m%d-%H%M%S")
+          echo ::set-output name=current_date::$CURRENT_DATE
+
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git clone --depth 1 https://${{ secrets.GITHUB_TOKEN }}@github.com/Sim2Team/extras.git
+
+          mkdir -p extras/builds/Sim2Editor/
+          cd extras/builds/Sim2Editor/
+          cp ${{ github.workspace }}/build/* .
+
+          git stage .
+          git commit -m "Sim2Editor | $COMMIT_HASH"
+          git tag v$CURRENT_DATE
+          git push origin master v$CURRENT_DATE
