@@ -93,4 +93,4 @@ jobs:
           git stage .
           git commit -m "Sim2Editor | $COMMIT_HASH"
           git tag v$CURRENT_DATE
-          git push origin master v$CURRENT_DATE
+          git push origin main v$CURRENT_DATE
