@@ -49,7 +49,8 @@ void StringInputLabel::Draw(void) const {
 /* Input Logic. */
 void StringInputLabel::Input() {
 	std::unique_ptr<KBD> Overlay = std::make_unique<KBD>(this->MaxLength, this->CurrentVal, this->InputText);
-	this->CurrentVal = Overlay->Action();
+	const std::string Str = Overlay->Action();
+	if (Str != "") this->CurrentVal = Str;
 }
 
 

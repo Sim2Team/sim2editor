@@ -47,7 +47,7 @@ void Settings::ToggleBackups() {
 }
 
 
-/* Set Default SAVPath. */
+/* Set Default Save Path. */
 void Settings::SetDefaultPath() {
 	if (this->Tab == SettingsTab::Configuration) {
 		std::unique_ptr<FileSelection> Overlay = std::make_unique<FileSelection>(CFG->SAVPath(), std::vector<std::string>({ "/" }), "Select a Default Save Path.", true, true);
@@ -152,7 +152,9 @@ void Settings::DrawPages() const {
 
 			/* Change this, after changes to the 3DS version. */
 			Gui::DrawStringCentered(0, 130, 0.4f, TEXT_COLOR,
-				"* [CORE]: Updated Core to the latest commit.",
+				"* [CORE]: GBA Identifier is 8 in size, not 7.\n" \
+				"* [CORE]: Fixed the Backup Checks.\n" \
+				"* [APP]: Don't allow empty String Label Inputs.",
 			310);
 			break;
 	}

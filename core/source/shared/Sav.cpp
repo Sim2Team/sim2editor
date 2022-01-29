@@ -89,7 +89,7 @@ namespace S2Core {
 			case 0x20000: {
 				bool Res = true;
 
-				for (uint8_t Idx = 0; Idx < 7; Idx++) {
+				for (uint8_t Idx = 0; Idx < 8; Idx++) {
 					if (this->GetData()[Idx] != this->GBAIdent[Idx]) {
 						Res = false;
 						break;
@@ -205,12 +205,7 @@ namespace S2Core {
 		switch(this->SType) {
 			case SavType::_GBA:
 				if (Slot < 1 || Slot > 4 || !this->GetValid()) return false;
-
-				for (uint8_t Idx = 0; Idx < 10; Idx++) {
-					if (this->GetData()[(Slot * 0x1000) + Idx] != 0) return true;
-				}
-
-				return false;
+				return this->GetData()[(Slot * 0x1000) + 0xD] != 0;
 
 			case SavType::_NDS:
 				if (Slot > 2 || !this->GetValid()) return false;

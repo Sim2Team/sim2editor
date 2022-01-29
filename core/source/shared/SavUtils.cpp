@@ -81,7 +81,7 @@ namespace S2Core {
 		Backup Format would be: 'Sims2-Year.Month.Day-Hour.Minute.Second.Sav'
 	*/
 	bool SavUtils::CreateBackup(const std::string &BasePath) {
-		if (!SavUtils::Sav || SavUtils::Sav->GetValid()) return false;
+		if (!SavUtils::Sav || !SavUtils::Sav->GetValid()) return false;
 
 		std::string BackupPath = BasePath + "/Backups/"; // Base path.
 		bool CreateIt = false;
@@ -92,7 +92,7 @@ namespace S2Core {
 		char TimeBuffer[80];
 		time(&Rawtime);
 		TimeInfo = localtime(&Rawtime);
-		strftime(TimeBuffer, sizeof(TimeBuffer),"%Y.%m.%d-%H.%M.%S", TimeInfo); // Get the Time as String.
+		strftime(TimeBuffer, sizeof(TimeBuffer), "%Y.%m.%d-%H.%M.%S", TimeInfo); // Get the Time as String.
 
 		switch(SavUtils::Sav->GetType()) {
 			case SavType::_GBA:

@@ -36,6 +36,7 @@ namespace S2Core {
 		"ò", "ó", "ô", "õ", "ö", "ø", "ù", "ú", "û", "ü", "º", "ª", "…", "™", "", "®", ""
 	};
 
+
 	/*
 		Decode bytes to the International Encoding (EUR, USA).
 
